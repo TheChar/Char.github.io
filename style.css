@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron:400,500');
 
-body {
+body, html {
 background-color: dodgerblue;
-  height:2vw;
+  height: 100%;
+  width: 100%;
 }
