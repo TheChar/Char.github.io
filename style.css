@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron:400,500');
 
-body {
+#basesetup {
 background-image: linear-gradient(red, yellow);
 }
 
