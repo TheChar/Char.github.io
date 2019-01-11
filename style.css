@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron:400,500');
 
 body {
-background-color: linear-gradient(red, yellow);
+background-image: linear-gradient(red, yellow);
 }
 
 h1 {
