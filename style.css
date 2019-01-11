@@ -6,7 +6,12 @@ body {
   background-image: linear-gradient(to right, red , yellow); /* Standard syntax (must be last) */
 }
 
-h1 {
+.header {
 font-family: orbitron;
 font-size: 200%;
+}
+
+.responsiveImage {
+  width: 100%;
+  height: auto;
 }
