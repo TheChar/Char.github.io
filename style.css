@@ -14,5 +14,5 @@ font-size: 200%;
 .responsiveImage {
   width: 100%;
   height: auto;
-  max-width: 300%;
+  max-width: 100%;
 }
