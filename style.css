@@ -4,7 +4,7 @@
 .bodyGradient {
   height: 200px;
   background-color: red; /* For browsers that do not support gradients */
-  background-image: linear-gradient(to right, red , yellow); /* Standard syntax (must be last) */
+  background-image: linear-gradient(to right, red, yellow, red); /* Standard syntax (must be last) */
 }
 
 .header {
