@@ -18,11 +18,11 @@ font-size: 200%;
   max-width: 40px;
 }
 
-.8BitGameDarkTheme {
+.gameDarkTheme {
   background-color: rgb(28, 27, 27);
 }  
 
-.8BitGameText {
+.gameText {
   font-family: 'Press Start 2P';
   color: rgb(249, 245, 194);
 }
