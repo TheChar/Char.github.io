@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron:400,500');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 
-body {
+.bodyGradient {
   height: 200px;
   background-color: red; /* For browsers that do not support gradients */
   background-image: linear-gradient(to right, red , yellow); /* Standard syntax (must be last) */
@@ -15,4 +16,13 @@ font-size: 200%;
   width: 100%;
   height: auto;
   max-width: 40px;
+}
+
+.8BitGameDarkTheme {
+  background-color: rgb(28, 27, 27);
+}  
+
+.8BitGameText {
+  font-family: 'Press Start 2P';
+  color: rgb(249, 245, 194);
 }
