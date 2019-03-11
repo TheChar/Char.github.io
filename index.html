@@ -40,5 +40,31 @@ document.oncontextmenu = click;
     <div class="logo">
       <a href="https://thechar.github.io/" style="color:white;">Home</a>
     </div>
+    <script>
+      function passWord() {
+      var testV = 1;
+      var pass1 = prompt('Please Enter Your Password',' ');
+      while (testV < 3) {
+      if (!pass1) 
+      history.go(-1);
+      if (pass1.toLowerCase() == "letmein") {
+      alert('You Got it Right!');
+      window.open('thechar.github.io/admin.html');
+      break;
+      } 
+      testV+=1;
+      var pass1 = 
+      prompt('Access Denied - Password Incorrect, Please Try Again.','Password');
+      }
+      if (pass1.toLowerCase()!="password" & testV ==3) 
+      history.go(-1);
+      return " ";
+      } 
+      </script>
+      <center>
+      <form>
+      <input type="button" value="Enter Protected Area" onClick="passWord()">
+      </form>
+      </center>
   </body>
   </html>
