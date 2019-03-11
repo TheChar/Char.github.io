@@ -1,5 +1,11 @@
+<!-------------------------------------------------------------------------->
+<!--                             Copyright                                -->
+<!--                        Charlie Bergdall 2019                         -->
+<!--                    HTML code for thechar.github.io                   -->
+<!-------------------------------------------------------------------------->
 <html><head>
   <title>Darth Hoog</title>
+  //script to make it impossible to right-click. To remove, highlight all and do ctrl + /
 <script>
   function click (e) {
   if (!e)
@@ -31,10 +37,34 @@ document.oncontextmenu = click;
       </div>
       <!-- Put divs for logo/home, about, game, login/signup, and seperators -->
     </div>
-    <hr>  
-    <hr>
-    <hr>
     <div class="logo">
       <a href="https://thechar.github.io/" style="color:white;">Home</a>
     </div>
-  </body></html>
+    <script>
+      function passWord() {
+      var testV = 1;
+      var pass1 = prompt('Please Enter Your Password',' ');
+      while (testV < 3) {
+      if (!pass1) 
+      history.go(-1);
+      if (pass1.toLowerCase() == "letmein") {
+      alert('You Got it Right!');
+      window.open('thechar.github.io/admin.html');
+      break;
+      } 
+      testV+=1;
+      var pass1 = 
+      prompt('Access Denied - Password Incorrect, Please Try Again.','Password');
+      }
+      if (pass1.toLowerCase()!="password" & testV ==3) 
+      history.go(-1);
+      return " ";
+      } 
+      </script>
+      <center>
+      <form>
+      <input type="button" value="Enter Protected Area" onClick="passWord()">
+      </form>
+      </center>
+  </body>
+  </html>
