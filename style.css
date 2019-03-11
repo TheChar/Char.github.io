@@ -52,7 +52,13 @@
 
 .logo:hover {
   background-color: black;
+  border: none;
   color: white;
+  padding: 15 px, 32 px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
 }
 
 .separators {}
