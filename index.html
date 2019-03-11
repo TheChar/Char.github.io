@@ -49,31 +49,36 @@ document.oncontextmenu = click;
     }
   }  
 </script>
+<script>
+    function securityCode() {
+    var testV = 1;
+    var pass1 = prompt('This is a secure site. Please enter code to continue','');
+    while (testV < 3) {
+    if (!pass1) 
+    history.go(-1);
+    if (pass1.toLowerCase() == "insanesecuritycode4") {
+    alert('You Got it Right!');
+    window.open('thechar.github.io/game.html');
+    break;
+    } 
+    testV+=1;
+    var pass1 = 
+    prompt('Access Denied - Password Incorrect, Please Try Again.','Retry');
+    }
+    if (pass1.toLowerCase()!="password" & testV ==3) 
+    history.go(-1);
+    return " ";
+    } 
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="https://thechar.github.io/style.css">
   </head>
-  <body class="bodyGradient">
-    <p>hey there</p>
-    <div class="header">
-      <div class="logo">
-          <a href="https://thechar.github.io/" style="background-color:white; color:black;">Home</a>
-        </div>
-      <div class="separators">
-      </div>
-      <div class="about">
-      </div>
-      <div class="separators">
-      </div>
-      <div class="admin">
-      <center>
-      <form>
-      <input type="button" value="AdminLock" onClick="passWord()" class="AdminButton">
-      </form>
-      </center>
-      </div>
-      <!-- Put divs for logo/home, about, game, login/signup, and seperators -->
-    </div>
-    
+  <body>
+    <center>
+    <form>
+    <input type="button" value="Security Code" onClick="securityCode()">
+    </form>
+    </center>
   </body>
   </html>
