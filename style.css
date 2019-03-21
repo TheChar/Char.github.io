@@ -20,8 +20,10 @@
   border-radius: 16px;
   padding: 32px;
   text-align: center;
+  text-decoration: none;
   color: rgb(249, 245, 194);
   height: 30px;
+  display: inline-block;
 }
 
 .responsiveImage {
