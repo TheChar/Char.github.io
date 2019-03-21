@@ -3,77 +3,78 @@
 <!--                        Charlie Bergdall 2019                         -->
 <!--                    HTML code for thechar.github.io                   -->
 <!-------------------------------------------------------------------------->
-<html><head>
-        <title>Darth Hoog</title>
-        <!--script to make it impossible to right-click. To remove, highlight all and do ctrl + /-->
-      <script>
-        function click (e) {
-        if (!e)
-          e = window.event;
-        if ((e.type && e.type == "contextmenu") || (e.button && e.button == 2) || (e.which && e.which == 3)) {
-          if (window.opera)
-            window.alert("");
-          return false;
-        }
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Darth Hoog</title>
+    <!--script to make it impossible to right-click. To remove, highlight all and do ctrl + /-->
+    <script>
+      function click (e) {
+      if (!e)
+      e = window.event;
+      if ((e.type && e.type == "contextmenu") || (e.button && e.button == 2) || (e.which && e.which == 3)) {
+      if (window.opera)
+      window.alert("");
+      return false;
+      }
       }
       if (document.layers)
-        document.captureEvents(Event.MOUSEDOWN);
+      document.captureEvents(Event.MOUSEDOWN);
       document.onmousedown = click;
       document.oncontextmenu = click;
-      </script>
-      <script>
-          function passWord() {
-          var testV = 1;
-          var pass1 = prompt('Enter Admin Password',' ');
-          while (testV < 3) {
-          if (!pass1) 
-          history.go(-1);
-          if (pass1.toLowerCase() == "chickeneatsbeef") {
-          alert('You Got it Right!');
-          open('game.html');
-          break;
-          } 
-          testV+=1;
-          var pass1 = 
-          prompt('Access Denied - Password Incorrect, Please Try Again.','Password');
-          }
-          if (pass1.toLowerCase()!="password" & testV ==3) 
-          history.go(-1);
-          return " ";
-          } 
-      </script>
-      <script>
-        document.body.onclick = function (e) {
-          while (e.ctrlKey) {
-            alert("ctrl key was pressed, stop pressing now");
-          }
-        }  
-      </script>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="https://thechar.github.io/style.css">
-        </head>
-        <body class="bodyGradient">
-          <p>hey there</p>
-          <div class="header">
-            <div class="logo">
-                <a href="https://thechar.github.io/" style="background-color:white; color:black;">Home</a>
-              </div>
-            <div class="separators">
-            </div>
-            <div class="about">
-            </div>
-            <div class="separators">
-            </div>
-            <div class="admin">
-            <center>
-            <form>
-            <input type="button" value="AdminLock" onClick="passWord()" class="AdminButton">
-            </form>
-            </center>
-            </div>
-            <!-- Put divs for logo/home, about, game, login/signup, and seperators -->
-          </div>
-        </body>
-        </html>
-      
+    </script>
+    <script>
+      function passWord() {
+      var testV = 1;
+      var pass1 = prompt('Enter Admin Password',' ');
+      while (testV < 3) {
+      if (!pass1) 
+      history.go(-1);
+      if (pass1.toLowerCase() == "chickeneatsbeef") {
+      alert('You Got it Right!');
+      open('game.html');
+      break;
+      } 
+      testV+=1;
+      var pass1 = 
+      prompt('Access Denied - Password Incorrect, Please Try Again.','Password');
+      }
+      if (pass1.toLowerCase()!="password" & testV ==3) 
+      history.go(-1);
+      return " ";
+      }
+    </script>
+    <script>
+      document.body.onclick = function (e) {
+      while (e.ctrlKey) {
+      alert("ctrl key was pressed, stop pressing now");
+      }
+      }  
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://thechar.github.io/style.css">
+  </head>
+  <body class="bodyGradient">
+    <p>hey there</p>
+    <div class="header">
+    <div class="logo">
+      <a href="https://thechar.github.io/" style="background-color:white; color:black;">Home</a>
+    </div>
+    <div class="separators">
+    </div>
+    <div class="about">
+    </div>
+    <div class="separators">
+    </div>
+    <div class="admin">
+      <center>
+        <form>
+          <input type="button" value="AdminLock" onClick="passWord()" class="AdminButton">
+        </form>
+      </center>
+    </div>
+    <!-- Put divs for logo/home, about, game, login/signup, and seperators -->
+    </div>
+  </body>
+</html>
