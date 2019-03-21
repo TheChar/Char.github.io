@@ -49,16 +49,16 @@ document.oncontextmenu = click;
     }
   }  
 </script>
-<script type="password">
+<script>
     function securityCode() {
     var testV = 1;
-    var pass1 = prompt('This is a secure site. Please enter code to continue','');
+    var pass1 = prompt('This is a secure site. Please enter security code to continue','');
     while (testV < 3) {
     if (!pass1) 
     history.go(-1);
     if (pass1.toLowerCase() == "insanesecuritycode4") {
     alert('Access granted. Welcome, Darth Hoog');
-    window.open('thechar.github.io/dagoofyfloof.html');
+    open('thechar.github.io/dagoofyfloof.html');
     break;
     } 
     testV+=1;
