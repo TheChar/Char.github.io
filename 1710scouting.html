@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>1710 Scouting</title>
+        <!--script to make it impossible to right-click. To remove, highlight all and do ctrl + /-->
+        <script>
+            function click (e) {
+            if (!e)
+            e = window.event;
+            if ((e.type && e.type == "contextmenu") || (e.button && e.button == 2) || (e.which && e.which == 3)) {
+            if (window.opera)
+            window.alert("");
+            return false;
+            }
+            }
+            if (document.layers)
+            document.captureEvents(Event.MOUSEDOWN);
+            document.onmousedown = click;
+            document.oncontextmenu = click;
+         </script>
+    </head>
+</html>
