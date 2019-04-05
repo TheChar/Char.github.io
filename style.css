@@ -43,7 +43,7 @@
   background-color: #ffffff;
   border: none;
   color: black;
-  padding: 15px 32px;
+  padding: none;
   text-align: center;
   display: inline-block;
   font-size: 16px;
@@ -55,7 +55,7 @@
   background-color: black;
   border: none;
   color: white;
-  padding: 15 px, 32 px;
+  padding: none;
   text-align: center;
   display: inline-block;
   font-size: 16px;
@@ -67,8 +67,8 @@
 }
 
 .logoImg {
-  height:20px;
-  width:20px;
+  height:80px;
+  width:80px;
   border:none;
 }
 
