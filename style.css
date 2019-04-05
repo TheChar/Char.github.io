@@ -9,8 +9,8 @@
 
 .bodyGradient {
   height: 200px;
-  background-color: red; /* For browsers that do not support gradients */
-  background-image: linear-gradient(to right, red, yellow, red); /* Standard syntax (must be last) */
+  background-color: rgb(28, 27, 27); /* For browsers that do not support gradients */
+  background-image: linear-gradient(to bottom rgb(28, 27, 27), rgb(234, 234, 234), rgb(28, 27, 27)), linear-gradient(to right, rgb(28, 27, 27), rgb(234, 234, 234), rgb(28, 27, 27)); /* Standard syntax (must be last) */
 }
 
 .header {
@@ -58,6 +58,18 @@
   height:80px;
   width:80px;
   border:none;
+}
+
+.button {
+  background-color:black;
+  color:white;
+  border:none;
+  font-family:orbitron;
+  border-radius:8px;
+  text-decoration:none;
+  padding:none;
+  width:32px;
+  height:16px;
 }
 
 .separators {}
