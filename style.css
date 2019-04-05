@@ -10,7 +10,7 @@
 .bodyGradient {
   height: 200px;
   background-color: rgb(28, 27, 27); /* For browsers that do not support gradients */
-  background-image: linear-gradient(to right rgb(28, 27, 27), rgb(234, 234, 234), rgb(28, 27, 27)); /* Standard syntax (must be last) */
+  background-image: radial-gradient(circle, rgb(234,234,234), rgb(28,27,27)); /* Standard syntax (must be last) */
 }
 
 .header {
