@@ -4,7 +4,7 @@
 <!--                    HTML code for thechar.github.io                   -->
 <!-------------------------------------------------------------------------->
 <html><head>
-  <title>Darth Hoog</title>
+  <title>!Access Blocked!</title>
   <!--script to make it impossible to right-click. To remove, highlight all and do ctrl + /-->
 <script>
   function click (e) {
@@ -30,7 +30,7 @@ document.oncontextmenu = click;
     history.go(-1);
     if (pass1.toLowerCase() == "chickeneatsbeef") {
     alert('You Got it Right!');
-    window.open('thechar.github.io/game.html');
+    open('https://thechar.github.io/game.html');
     break;
     } 
     testV+=1;
@@ -52,18 +52,18 @@ document.oncontextmenu = click;
 <script>
     function securityCode() {
     var testV = 1;
-    var pass1 = prompt('This is a secure site. Please enter code to continue','');
+    var pass1 = prompt('This is a secure site. Please enter security code to continue','');
     while (testV < 3) {
     if (!pass1) 
     history.go(-1);
     if (pass1.toLowerCase() == "insanesecuritycode4") {
     alert('Access granted. Welcome, Darth Hoog');
-    window.open('thechar.github.io/dagoofyfloof.html');
+    open('https://thechar.github.io/dagoofyfloof.html');
     break;
     } 
     testV+=1;
     var pass1 = 
-    prompt('Access Denied - Password Incorrect, Please Try Again.','Retry');
+    prompt('Access Denied - Password Incorrect, Please Try Again.','');
     }
     if (pass1.toLowerCase()!="password" & testV ==3) 
     history.go(-1);
@@ -75,10 +75,13 @@ document.oncontextmenu = click;
   <link rel="stylesheet" type="text/css" href="https://thechar.github.io/style.css">
   </head>
   <body style="background-color:black;">
-    <center>
+   <center>
     <form>
     <input type="button" value="Access Code" onClick="securityCode()">
     </form>
-    </center>
+      <div>
+        <code style="font-size:300%;color:white;">Sorry, but this website is currently being developed. Please come back later.</code>
+      </div>
+   </center>
   </body>
   </html>
