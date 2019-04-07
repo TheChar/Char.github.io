@@ -71,6 +71,12 @@
   height:16px;
 }
 
+.signupButton {
+  background-color:blue;
+  border-radius:8px;
+  padding:16px;
+}
+
 .separators {}
 
 .about {}
