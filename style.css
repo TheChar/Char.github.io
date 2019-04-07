@@ -9,7 +9,7 @@
 
 .bodyGradient {
   height: 200px;
-  background-image: radial-gradient(circle, rgb(234,234,234), rgb(28,27,27)); 
+  background-color: white;
 }
 
 .header {
