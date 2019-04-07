@@ -9,7 +9,7 @@
 
 .bodyGradient {
   height: 200px;
-  background-image: radial-gradient(circle, rgb(234,234,234), rgb(28,27,27)); /* Standard syntax (must be last) */
+  background-image: radial-gradient(circle, rgb(234,234,234), rgb(28,27,27)); 
 }
 
 .header {
@@ -59,22 +59,22 @@
   border:none;
 }
 
-.button {
+.headerButton {
   background-color:black;
   color:white;
-  border:none;
   font-family:orbitron;
   border-radius:8px;
   text-decoration:none;
-  padding:none;
-  width:32px;
-  height:16px;
+  padding:16px;
 }
 
 .signupButton {
   background-color:blue;
   border-radius:8px;
   padding:16px;
+  text-decoration:none;
+  font-family:orbitron;
+  color:white;
 }
 
 .separators {}
