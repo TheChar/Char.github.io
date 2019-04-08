@@ -73,15 +73,6 @@
   box-shadow: 0 12px 16px;
 }
 
-.signupButton {
-  background-color:blue;
-  border-radius:12px;
-  padding:16px;
-  text-decoration:none;
-  font-family:orbitron;
-  color:white;
-}
-
 .separators {}
 
 .about {}
