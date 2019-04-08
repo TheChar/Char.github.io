@@ -62,14 +62,14 @@
   background-color:black;
   color:white;
   font-family:orbitron;
-  border-radius:8px;
+  border-radius:12px;
   text-decoration:none;
   padding:16px;
 }
 
 .signupButton {
   background-color:blue;
-  border-radius:8px;
+  border-radius:12px;
   padding:16px;
   text-decoration:none;
   font-family:orbitron;
