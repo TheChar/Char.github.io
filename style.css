@@ -67,6 +67,12 @@
   padding:16px;
 }
 
+.headerButtonText {
+  color:whitesmoke;
+  text-decoration:none;
+  font-family:orbitron;
+}
+
 .headerButton:hover {
   background-color:darkslategrey;
   color:white;
