@@ -65,7 +65,7 @@
   border-radius:12px;
   text-decoration:none;
   padding:16px;
-  display:inline;
+  display:inline-block;
 }
 
 .headerButton:hover {
