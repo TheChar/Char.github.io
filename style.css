@@ -65,12 +65,13 @@
   border-radius:12px;
   text-decoration:none;
   padding:16px;
+  display:inline;
 }
 
 .headerButton:hover {
   background-color:white;
   color:black;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 12px 16px 0
 }
 
 .signupButton {
