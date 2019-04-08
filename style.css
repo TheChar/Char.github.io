@@ -20,6 +20,7 @@
   text-align: center;
   color: rgb(255, 255, 255);
   height: 30px;
+  position:fixed;
 }
 
 .responsiveImage {
@@ -65,6 +66,7 @@
   border-radius:12px;
   text-decoration:none;
   padding:16px;
+  position:top;
 }
 
 .headerButtonText {
