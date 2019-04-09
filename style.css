@@ -82,8 +82,7 @@
 }
 
 .headerButton:hover {
-  background-color:darkslategrey;
-  color:white;
+  color:red;
   box-shadow: 0 12px 16px;
 }
 
