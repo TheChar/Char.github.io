@@ -67,7 +67,8 @@
   text-decoration:none;
   padding:16px;
   position: absolute;
-  top:5px;
+  top:50px;
+  right:10px;
 }
 
 .headerButtonText {
