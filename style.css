@@ -21,7 +21,7 @@
   color: rgb(255, 255, 255);
   height: 30px;
   position: relative;
-  width: 98%;
+  width: auto;
 }
 
 .responsiveImage {
