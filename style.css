@@ -66,9 +66,7 @@
   border-radius:12px;
   text-decoration:none;
   padding:16px;
-  position: absolute;
-  top:50px;
-  right:10px;
+  display:inline-block;
 }
 
 #aboutButton {
