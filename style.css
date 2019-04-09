@@ -20,12 +20,13 @@
   text-align: center;
   color: rgb(255, 255, 255);
   height: 30px;
+  position: relative;
+  width: auto;
 }
 
 .responsiveImage {
   width: 100%;
   height: auto;
-  max-width: 40px;
 }
 
 .gameDarkTheme {
@@ -60,23 +61,37 @@
 
 .headerButton {
   background-color:black;
-  color:white;
+  color:whitesmoke;
   font-family:orbitron;
-  border-radius:8px;
+  border-radius:12px;
   text-decoration:none;
   padding:16px;
+  position: absolute;
+  top:50px;
+  right:10px;
 }
 
-.signupButton {
-  background-color:blue;
-  border-radius:8px;
-  padding:16px;
+#aboutButton {
+  right:10px;
+}
+
+.headerButtonText {
+  color:whitesmoke;
   text-decoration:none;
   font-family:orbitron;
-  color:white;
 }
 
-.separators {}
+.headerButton:hover {
+  box-shadow: 0 12px 16px;
+}
+
+.separators {
+  height:20px;
+  top:5px;
+  width:5px;
+  right:10px;
+  background-color:whitesmoke;
+}
 
 .about {}
 
