@@ -7,7 +7,7 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron:400,500');
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 
-.bodyGradient {
+body {
   background-color: rgb(79,79,79);
 }
 
@@ -19,9 +19,7 @@
   padding: 17px;
   text-align: center;
   color: rgb(255, 255, 255);
-  height: 30px;
   position: relative;
-  width: auto;
   box-sizing: border-box;
   display: flex;
 }
@@ -75,10 +73,32 @@
   text-decoration:none;
   padding:16px;
   display:inline-flex;
+  margin-top:13.5px;
 }
 
-#aboutButton {
-  right:10px;
+.signupButton{
+  background-color:red;
+  color:black;
+  font-family:orbitron;
+  border-radius:12px;
+  text-decoration:none;
+  padding:16px;
+  display:inline-flex;
+  margin-top:13.5px;
+  animation-name:signupButton;
+  animation-duration:15s;
+  animation-iteration-count: infinite;
+}
+
+.signupButton:hover {
+  background-color: rgb(0, 206, 30);
+  color:black;
+  cursor:pointer;
+}
+
+@keyframes signupButton {
+  0%{background-color:red;}
+  50%{background-color:yellow;}
 }
 
 .headerButtonText {
@@ -88,7 +108,8 @@
 }
 
 .headerButton:hover {
-  box-shadow: 0 12px 16px;
+  background-color:whitesmoke;
+  color:black;
   cursor:pointer;
 }
 
@@ -97,6 +118,13 @@
   top:5px;
   width:5px;
   right:10px;
+  background-color:whitesmoke;
+}
+
+.bodyDiv {
+  height:auto;
+  width:98%;
+  border-radius:16px;
   background-color:whitesmoke;
 }
 
