@@ -33,15 +33,11 @@ body {
 .responsiveImage {
   width: 100%;
   height: auto;
-}
-
-.gameDarkTheme {
-  background-color: rgb(28, 27, 27);
-}  
+} 
 
 .gameText {
   font-family: 'Press Start 2P';
-  color: rgb(255, 255, 255);
+  color: whitesmoke;
 }
 
 .logo {
@@ -91,8 +87,6 @@ body {
 }
 
 .signupButton:hover {
-  background-color: rgb(0, 206, 30);
-  color:black;
   cursor:pointer;
 }
 
@@ -109,6 +103,7 @@ body {
 
 .headerButton:hover {
   background-color:whitesmoke;
+  background-image: linear-gradient(to bottom right, yellow, red);
   color:black;
   cursor:pointer;
 }
