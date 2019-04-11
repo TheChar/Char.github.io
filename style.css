@@ -40,6 +40,14 @@ body {
   color: whitesmoke;
 }
 
+.spaceText {
+  font-family: orbitron;
+  color: whitesmoke;
+  text-align: center;
+  margin: 0px;
+  border: 0px;
+}
+
 .logo {
   background-color: #ffffff;
   border: none;
@@ -91,8 +99,8 @@ body {
 }
 
 @keyframes signupButton {
-  0%{background-color:red;}
-  50%{background-color:yellow;}
+  0%{background-color: red;}
+  50%{background-color: yellow}
 }
 
 .headerButtonText {
@@ -120,7 +128,8 @@ body {
   height:auto;
   width:98%;
   border-radius:16px;
-  background-color:whitesmoke;
+  background-color:rgb(28, 27, 27);
+  padding: 10px;
 }
 
 .about {}
