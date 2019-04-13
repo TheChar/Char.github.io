@@ -130,9 +130,8 @@ body {
   border-radius:16px;
   background-color:rgb(28, 27, 27);
   padding: 10px;
+  font-family: orbitron;
+  color: whitesmoke;
 }
 
-.about {}
-
-.adminButton {}
 
