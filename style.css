@@ -35,6 +35,12 @@ body {
   height: auto;
 } 
 
+.homeText {
+  font-family: orbitron;
+  text-align: center;
+  color: whitesmoke;
+}
+
 .gameText {
   font-family: 'Press Start 2P';
   color: whitesmoke;
@@ -135,22 +141,22 @@ body {
   text-align: center;
 }
 
+@keyframes sectionText {
+  0%{color:red;}
+  50%{color:yellow;}
+}
+
 .section {
   height: auto;
   width: 98%;
   padding: 10px;
-  background-image: linear-gradient(to bottom right, red, yellow);
-  color: black;
+  background-color: black;
+  color: red;
   border-radius: 12px;
-}
-
-.sectionAlternate {
-  height: auto;
-  width: 98%;
-  padding: 10px;
-  background-image: linear-gradient(to top right, red, yellow);
-  color: black;
-  border-radius: 12px;
+  animation-name: sectionText;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  font-family: orbitron;
 }
 
 .topSection {
@@ -216,12 +222,13 @@ body {
 .sectionButtonLeft:hover {
   cursor: pointer;
   background-color: whitesmoke;
+  background-image: linear-gradient(to bottom right, yellow, red);
   color: black;
 }
 
 .sectionButtonRightContainer {
   text-align: right;
-  margin-right: 50px;
+  margin-right: 15px;
 }
 
 .sectionButtonRight {
@@ -235,6 +242,24 @@ body {
 
 .sectionButtonRight:hover {
   cursor: pointer;
-  background-color: red;
+  background-color: whitesmoke;
+  background-image: linear-gradient(to bottom right, yellow, red);
+  color: black;
 }
 
+.miniSectionButton {
+  background-color: black;
+  border-radius: 12px;
+  color:whitesmoke;
+  text-decoration:none;
+  padding:16px;
+  font-family: orbitron;
+  text-align: right;
+}
+
+.miniSectionButton:hover {
+  color:black;
+  background-color:whitesmoke;
+  background-image: linear-gradient(to bottom right, yellow, red);
+  cursor: pointer;
+}
