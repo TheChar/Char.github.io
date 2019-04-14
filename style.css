@@ -132,6 +132,109 @@ body {
   padding: 10px;
   font-family: orbitron;
   color: whitesmoke;
+  text-align: center;
 }
 
+.section {
+  height: auto;
+  width: 98%;
+  padding: 10px;
+  background-image: linear-gradient(to bottom right, red, yellow);
+  color: black;
+  border-radius: 12px;
+}
+
+.sectionAlternate {
+  height: auto;
+  width: 98%;
+  padding: 10px;
+  background-image: linear-gradient(to top right, red, yellow);
+  color: black;
+  border-radius: 12px;
+}
+
+.topSection {
+  height:auto;
+  width:100%;
+  padding: 10px;
+  font-size: 200%
+}
+
+.sectionTitleLeft {
+  text-align: left;
+  margin-left: 15px;
+}
+
+.sectionTitleRight {
+  text-align: right;
+  margin-right: 15px;
+}
+
+.middleSection {
+  width: 100%;
+  height: auto;
+  padding: 15px;
+  display: flex;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.middleSectionPreview {
+  width: 250px;
+  height: 250px;
+  border-radius: 12px;
+  overflow:hidden;
+  display: inline-flex;
+  border: none;
+}
+
+.middleSectionPreviewSeparators {
+  height: auto;
+  width: 10px;
+}
+
+.bottomSection {
+  padding: 10px;
+  height: auto;
+  width: 100%;
+}
+
+.sectionButtonLeftContainer {
+  text-align: left;
+  margin-left: 15px;
+}
+
+.sectionButtonLeft {
+  background-color:black;
+  color:whitesmoke;
+  font-family:orbitron;
+  border-radius:12px;
+  text-decoration:none;
+  padding:16px;
+}
+
+.sectionButtonLeft:hover {
+  cursor: pointer;
+  background-color: whitesmoke;
+  color: black;
+}
+
+.sectionButtonRightContainer {
+  text-align: right;
+  margin-right: 50px;
+}
+
+.sectionButtonRight {
+  background-color:black;
+  color:whitesmoke;
+  font-family:orbitron;
+  border-radius:12px;
+  text-decoration:none;
+  padding:16px;
+}
+
+.sectionButtonRight:hover {
+  cursor: pointer;
+  background-color: red;
+}
 
