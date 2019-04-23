@@ -117,7 +117,7 @@ body {
 
 .headerButton:hover {
   background-color:whitesmoke;
-  background-image: linear-gradient(to bottom right, yellow, red);
+  background-image: linear-gradient(to bottom right, yellow, red); /*use dodgerblue to purple for light theme*/
   color:black;
   cursor:pointer;
 }
