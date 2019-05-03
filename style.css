@@ -96,7 +96,7 @@ body {
   display:inline-flex;
   margin-top:13.5px;
   animation-name:signupButton;
-  animation-duration:15s;
+  animation-duration:10s;
   animation-iteration-count: infinite;
 }
 
