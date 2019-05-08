@@ -11,6 +11,27 @@ body {
   background-color: rgb(79,79,79);
 }
 
+#duckHead {
+  background-color:lightgray;
+  height:100px;
+  width:100%;
+  padding:75px;
+}
+
+#duckBody {
+  background-color:whitesmoke;
+  width:100%;
+  height:auto;
+  padding: 80px;
+}
+
+#duckFoot {
+  background-color:black;
+  width:100%;
+  height: auto;
+  padding:20px;
+}
+
 .header {
   font-family: orbitron;
   font-size: 200%;
