@@ -16,6 +16,12 @@
     z-index: 1;
 }
 
+@keyframes introCrispr {
+    0%{color: red;}
+    50%{color: yellow;}
+    100%{color: red;}
+}
+
 .speechSymptoms {
     display: inline-flex;
 }
