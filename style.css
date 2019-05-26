@@ -167,6 +167,12 @@ body {
   50%{color:yellow;}
 }
 
+@keyframes siriusTitle {
+  0%{color:red;}
+  50%{color:yellow;}
+  100%{color:red;}
+}
+
 .section {
   height: auto;
   width: 98%;
