@@ -173,6 +173,15 @@ body {
   100%{color:red;}
 }
 
+.siriusUpdateLogContainer {
+  border-radius: 12px;
+  background-color: rgb(28,27,27);
+  padding: 10px;
+  text-align:center;
+  font-family: orbitron;
+  color: whitesmoke;
+}
+
 .section {
   height: auto;
   width: 98%;
