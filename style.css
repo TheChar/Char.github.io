@@ -45,6 +45,47 @@ body {
   display: flex;
 }
 
+.footer {
+  font-family: orbitron;
+  background-color: black;
+  border-radius: 16px;
+  color: white;
+  height: 50px;
+  width:98%;
+}
+
+.siriusTable {
+  border: 1px solid whitesmoke;
+  border-radius: 8px;
+  border-collapse: collapse;
+  padding: 5px;
+
+}
+
+.siriusButtonContainer {
+  display: flex;
+  border-radius: 12px;
+  padding: 8px;
+  background-color: rgb(28, 27, 27);
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.siriusButton {
+  background-color:black;
+  background-image: linear-gradient(to bottom right, yellow, red);
+  color:black;
+  font-family:orbitron;
+  border-radius:12px;
+  text-decoration:none;
+  padding:16px;
+  margin-top:13.5px;
+}
+
+.siriusButton:hover {
+  cursor:pointer;
+}
+
 .div {
   display:inline-block;
   margin:auto;

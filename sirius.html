@@ -20,9 +20,10 @@
                 </h1>
             </center>
         </div>
-        <button onclick="downloadButton();">Add to Discord</button>
-        <div style="height: 5px;"></div>
-        <button onclick="feedbackServerButton();">Sirius Bot Testing and Feedback</button>
+        <div class="header">
+        <button class="siriusButton" onclick="downloadButton();">Add to Discord</button>
+        <button class="siriusButton" onclick="feedbackServerButton();">Sirius Bot Testing and Feedback</button>
+        </div>
         <div class="siriusUpdateLogContainer">
             <h2>Update Log</h2>
             <p>Versions are shown in a.b.c format where a is the current number of major updates, b is the current number of command addition updates, and c is the current number of bug fixes and command edits.</p>
@@ -35,7 +36,63 @@
             <hr>
             <h3><strong>1.1.1</strong></h3>
             <p>Bug fixes, removed second 'help' field in the help command</p>
+            <hr>
+            <h3><strong>1.1.2</strong></h3>
+            <p>Edited the futureupdate command to incorporate minor and miniscule updates</p>
         </div>
-        <!--Put command log here-->
+        <div style="height: 30px;"></div>
+        <div class="siriusUpdateLogContainer">
+            <h2>Current Commands</h2>
+            <table class="siriusTable">
+                <tr class="siriusTable">
+                    <th class="siriusTable">Command Name</th>
+                    <th class="siriusTable">Description</th>
+                    <th class="siriusTable">Syntax</th>
+                    <th class="siriusTable">Permissions</th>
+                </tr>
+                <tr class="siriusTable">
+                    <td class="siriusTable">Ban</td>
+                    <td class="siriusTable">Bans a specific user from the server</td>
+                    <td class="siriusTable">*ban @user</td>
+                    <td class="siriusTable">ADMIN ONLY</td>
+                </tr>
+                <tr class="siriusTable">
+                    <td class="siriusTable">Future Update</td>
+                    <td class="siriusTable">Lists upcoming updates to Sirius Bot</td>
+                    <td class="siriusTable">*futureupdate</td>
+                    <td class="siriusTable">All users</td>
+                </tr>
+                <tr class="siriusTable">
+                    <td class="siriusTable">Help</td>
+                    <td class="siriusTable">Lists all commands and their syntaxes</td>
+                    <td class="siriusTable">*help</td>
+                    <td class="siriusTable">All users</td>
+                </tr>
+                <tr class="siriusTable">
+                    <td class="siriusTable">Kick</td>
+                    <td class="siriusTable">Kicks a specific user from the server</td>
+                    <td class="siriusTable">*kick @user</td>
+                    <td class="siriusTable">ADMIN ONLY</td>
+                </tr>
+                <tr class="siriusTable">
+                    <td class="siriusTable">Purge</td>
+                    <td class="siriusTable">Deletes a specified number of messages from the channel as long as they are within 14 days of being sent</td>
+                    <td class="siriusTable">*purge #</td>
+                    <td class="siriusTable">ADMIN ONLY</td>
+                </tr>
+                <tr class="siriusTable">
+                    <td class="siriusTable">Server Info</td>
+                    <td class="siriusTable">Shows information about the current server hosting Sirius Bot</td>
+                    <td class="siriusTable">*serverinfo</td>
+                    <td class="siriusTable">All users</td>
+                </tr>
+                <tr class="siriusTable">
+                    <td class="siriusTable">Update Log</td>
+                    <td class="siriusTable">Shows every update to Sirius and what it did</td>
+                    <td class="siriusTable">*updatelog</td>
+                    <td class="siriusTable">All users</td>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>
