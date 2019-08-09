@@ -64,11 +64,12 @@ body {
 
 .siriusButtonContainer {
   display: flex;
-  border-radius: 12px;
-  padding: 8px;
+  border-radius: 16px;
+  padding: 17px;
   background-color: rgb(28, 27, 27);
   width: 100%;
   justify-content: space-evenly;
+  position: relative;
 }
 
 .siriusButton {
@@ -79,7 +80,6 @@ body {
   border-radius:12px;
   text-decoration:none;
   padding:16px;
-  margin-top:13.5px;
 }
 
 .siriusButton:hover {
