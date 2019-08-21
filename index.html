@@ -3,85 +3,288 @@
 <!--                        Charlie Bergdall 2019                         -->
 <!--                    HTML code for thechar.github.io                   -->
 <!-------------------------------------------------------------------------->
-<html><head>
-  <title>!Access Blocked!</title>
-  <!--script to make it impossible to right-click. To remove, highlight all and do ctrl + /-->
-<script>
-  function click (e) {
-  if (!e)
-    e = window.event;
-  if ((e.type && e.type == "contextmenu") || (e.button && e.button == 2) || (e.which && e.which == 3)) {
-    if (window.opera)
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Charlie's Website</title>
+    <!--script to make it impossible to right-click. To remove, highlight all and do ctrl + /-->
+    <script>
+      function click (e) {
+      if (!e)
+      e = window.event;
+      if ((e.type && e.type == "contextmenu") || (e.button && e.button == 2) || (e.which && e.which == 3)) {
+      if (window.opera)
       window.alert("");
-    return false;
-  }
-}
-if (document.layers)
-  document.captureEvents(Event.MOUSEDOWN);
-document.onmousedown = click;
-document.oncontextmenu = click;
-</script>
-<script>
-    function passWord() {
-    var testV = 1;
-    var pass1 = prompt('Enter Admin Password',' ');
-    while (testV < 3) {
-    if (!pass1) 
-    history.go(-1);
-    if (pass1.toLowerCase() == "chickeneatsbeef") {
-    alert('You Got it Right!');
-    open('https://thechar.github.io/game.html');
-    break;
-    } 
-    testV+=1;
-    var pass1 = 
-    prompt('Access Denied - Password Incorrect, Please Try Again.','Password');
-    }
-    if (pass1.toLowerCase()!="password" & testV ==3) 
-    history.go(-1);
-    return " ";
-    } 
-</script>
-<script>
-  document.body.onclick = function (e) {
-    while (e.ctrlKey) {
-      alert("ctrl key was pressed, stop pressing now");
-    }
-  }  
-</script>
-<script>
-    function securityCode() {
-    var testV = 1;
-    var pass1 = prompt('This is a secure site. Please enter security code to continue','');
-    while (testV < 3) {
-    if (!pass1) 
-    history.go(-1);
-    if (pass1.toLowerCase() == "insanesecuritycode4") {
-    alert('Access granted. Welcome.');
-    open('https://thechar.github.io/dagoofyfloof.html');
-    break;
-    } 
-    testV+=1;
-    var pass1 = 
-    prompt('Access Denied - Password Incorrect, Please Try Again.','');
-    }
-    if (pass1.toLowerCase()!="password" & testV ==3) 
-    history.go(-1);
-    return " ";
-    } 
-</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="style.css">
+      return false;
+      }
+      }
+      if (document.layers)
+      document.captureEvents(Event.MOUSEDOWN);
+      document.onmousedown = click;
+      document.oncontextmenu = click;
+    </script>
+    <script>
+      function passWord() {
+      var testV = 1;
+      var pass1 = prompt('Enter Admin Password',' ');
+      while (testV < 3) {
+      if (!pass1) 
+      history.go(-1);
+      if (pass1.toLowerCase() == "chickeneatsbeef") {
+      alert('You Got it Right!');
+      open("https://thechar.github.io/game.html");
+      break;
+      } 
+      testV+=1;
+      var pass1 = 
+      prompt('Access Denied - Password Incorrect, Please Try Again.','Password');
+      }
+      if (pass1.toLowerCase()!="password" & testV ==3) 
+      history.go(-1);
+      return " ";
+      }
+    </script>
+    <script>
+      function siriuspage() {
+        open("https://thechar.github.io/sirius.html");
+      }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-   <center>
-    <form>
-    <input type="button" value="Access Code" onClick="securityCode()">
-    </form>
-      <div>
-        <h3 style="font-size:300%;color:whitesmoke;">Sorry, but this website is currently being developed. Please come back later.</h3>
+    <div style="width:auto;height:10px;"></div>
+    <div class="header responsiveImage">
+    <div class="logo div">
+      <a href="https://thechar.github.io/" class="div">
+        <img class="logoImg" src="https://www.nationalgeographic.com/content/dam/animals/thumbs/rights-exempt/mammals/d/domestic-dog_thumb.jpg" alt="Dog">
+      </a>
+    </div>
+    <div class="about div">
+      <a href="https://thechar.github.io/about.html" class="headerButtonText">
+        <button class="headerButton" id="aboutButton">
+          About
+        </button>
+      </a>
+    </div>
+    <div class="div">
+      <a href="https://thechar.github.io/projects.html" class="headerButtonText">
+        <button class="headerButton">
+          Projects
+        </button>
+      </a>
+    </div>
+    <div class="div">
+      <a href="https://thechar.github.io/coding.html" class="headerButtonText">
+        <button class="headerButton">
+          Coding
+        </button>
+      </a>
+    </div>
+    <div class="div">
+      <a href="https://thechar.github.io/1710.html" class="headerButtonText">
+        <button class="headerButton">
+          1710 Scouting
+        </button>
+      </a>
+    </div>
+    <div class="div">                                                              
+      <a href="https://thechar.github.io/signup.html"class="headerButtonText">
+        <button class="signupButton">
+          Sign Up/Log In
+        </button>
+      </a>
+    </div>
+    </div>
+    <div style="width:auto;height:30px;"></div>
+    <div class="bodyDiv"> <!-- Start of body below header-->
+      <div style="width:auto;height:10px;"></div> <!--Separates sections-->
+      <div class="section">
+        <h2 class="homeText" style="color:red;animation-name:sectionText;animation-duration:15s;animation-iteration-count:infinite;">Hey there</h2>
+        <p class="homeText">Welcome to my website! If you haven't yet, please head to the About page to learn
+          more about me and why I created this website. Inside the header of this site, you will find different tabs
+          for games I'm developing, code that I'm creating, and the FRC team that I am a part of. 
+          Please note that all parts of this website are accessible to anyone, but progress is not saved without an account. 
+          You must have an account to use the forums. Read more in the about page. The tabs below contain random stuff I felt like writing down.
+        </p>
       </div>
-   </center>
+      <div style="width:auto;height:30px;"></div>
+      <button onclick="siriuspage();">Sirius</button>
+      <div style="width:auto;height:30px;"></div>
+      <div class="section"> <!-- Start of specific section div-->
+        <div class="topSection"> <!-- Start of top portion of div (contains title)-->
+          <div class="sectionTitleLeft"> <!-- Start of Section title div (alignment should alternate between left and right)-->
+            Databases
+          </div> <!-- End of Section title div-->
+        </div> <!-- End of top portion of div-->
+        <div class="middleSection"> <!-- Start of middle portion of div (contains previews)-->
+          <div class="middleSectionPreview"><!-- Start of preview 1 (use an image?)-->
+            <iframe src="https://thechar.github.io/index.html" class="middleSectionPreview"></iframe><!--Preview 1 iframe-->
+          </div> <!-- End of preview 1-->
+          <div class="middleSectionPreviewSeparators"></div> <!-- Preview Separator-->
+          <div class="middleSectionPreview"> <!-- Start of preview 2 (use an iframe?)-->
+            <iframe src="https://thechar.github.io/game.html" class="middleSectionPreview"></iframe><!--Preview 2 iframe-->
+          </div> <!-- End of preview 2-->
+          <div class="middleSectionPreviewSeparators"></div> <!-- Preview Separator-->
+          <div class="middleSectionPreview"> <!-- Start of preview 3 (use an iframe?)-->
+            <iframe src="https://thechar.github.io/coding.html" class="middleSectionPreview"></iframe><!--Preview 3 iframe-->
+          </div> <!-- End of preview 3-->
+          <div class="middleSectionPreviewSeparators"></div> <!-- Preview Separator-->
+          <div class="middleSectionPreview">
+            <iframe src="https://thechar.github.io/1710.html" class="middleSectionPreview"></iframe><!--Preview 4 iframe-->
+          </div>
+        </div> <!-- End of middle portion of div-->
+        <div class="bottomSection"> <!-- Start of bottom portion of div (contains "Go Now" Button)-->
+          <div class="sectionButtonRightContainer"> <!-- Start of Button div (alignment should alternate between left and right)-->
+            <a href="https://thechar.github.io/databases.html">
+            <button class="sectionButtonRight">
+              Go Now!
+            </button><!--Go Now Button is placed here-->
+            </a>
+          </div>
+        </div> <!-- End of bottom portion of div-->
+      </div><!-- End of specific section div-->
+      <div style="width:auto;height:30px;"></div> <!--Separates sections-->
+      <div class="section"> <!-- Start of specific section div-->
+        <div class="topSection"> <!-- Start of top portion of div (contains title)-->
+          <div class="sectionTitleRight"> <!-- Start of Section title div (alignment should alternate between left and right)-->
+            How-to Guides
+          </div> <!-- End of Section title div-->
+        </div> <!-- End of top portion of div-->
+        <div class="middleSection"> <!-- Start of middle portion of div (contains previews)-->
+          <div class="middleSectionPreview"><!-- Start of preview 1 (use an iframe?)-->
+            <iframe src="https://thechar.github.io/index.html" class="middleSectionPreview"></iframe><!--Preview 1 iframe-->
+          </div> <!-- End of preview 1-->
+          <div class="middleSectionPreviewSeparators"></div> <!-- Preview Separator-->
+          <div class="middleSectionPreview"> <!-- Start of preview 2 (use an iframe?)-->
+            <iframe src="https://thechar.github.io/game.html" class="middleSectionPreview"></iframe><!--Preview 2 iframe-->
+          </div> <!-- End of preview 2-->
+          <div class="middleSectionPreviewSeparators"></div> <!-- Preview Separator-->
+          <div class="middleSectionPreview"> <!-- Start of preview 3 (use an iframe?)-->
+            <iframe src="https://thechar.github.io/coding.html" class="middleSectionPreview"></iframe><!--Preview 3 iframe-->
+          </div> <!-- End of preview 3-->
+          <div class="middleSectionPreviewSeparators"></div> <!-- Preview Separator-->
+          <div class="middleSectionPreview">
+            <iframe src="https://thechar.github.io/1710.html" class="middleSectionPreview"></iframe><!--Preview 4 iframe-->
+          </div>
+        </div> <!-- End of middle portion of div-->
+        <div class="bottomSection"> <!-- Start of bottom portion of div (contains "Go Now" Button)-->
+          <div class="sectionButtonLeftContainer"> <!-- Start of Button div (alignment should alternate between left and right)-->
+            <a href="https://thechar.github.io/howtoguides.html">
+            <button class="sectionButtonLeft">
+              Go Now!
+            </button><!--Go Now Button is placed here-->
+            </a>
+          </div>
+        </div> <!-- End of bottom portion of div-->
+      </div><!-- End of specific section div-->
+      <div style="width:auto;height:30px;"></div> <!--Separates sections-->
+      <div class="section"> <!-- Start of specific section div-->
+        <div class="topSection"> <!-- Start of top portion of div (contains title)-->
+          <div class="sectionTitleLeft"> <!-- Start of Section title div (alignment should alternate between left and right)-->
+            Video Games
+          </div> <!-- End of Section title div-->
+        </div> <!-- End of top portion of div-->
+        <div class="middleSection"> <!-- Start of middle portion of div (contains previews)-->
+          <div class="middleSectionPreview"><!-- Start of preview 1 (use an image?)-->
+            <iframe src="https://thechar.github.io/index.html" class="middleSectionPreview"></iframe><!--Preview 1 iframe-->
+          </div> <!-- End of preview 1-->
+          <div class="middleSectionPreviewSeparators"></div> <!-- Preview Separator-->
+          <div class="middleSectionPreview"> <!-- Start of preview 2 (use an iframe?)-->
+            <iframe src="https://thechar.github.io/game.html" class="middleSectionPreview"></iframe><!--Preview 2 iframe-->
+          </div> <!-- End of preview 2-->
+          <div class="middleSectionPreviewSeparators"></div> <!-- Preview Separator-->
+          <div class="middleSectionPreview"> <!-- Start of preview 3 (use an iframe?)-->
+            <iframe src="https://thechar.github.io/coding.html" class="middleSectionPreview"></iframe><!--Preview 3 iframe-->
+          </div> <!-- End of preview 3-->
+          <div class="middleSectionPreviewSeparators"></div> <!-- Preview Separator-->
+          <div class="middleSectionPreview">
+            <iframe src="https://thechar.github.io/1710.html" class="middleSectionPreview"></iframe><!--Preview 4 iframe-->
+          </div>
+        </div> <!-- End of middle portion of div-->
+        <div class="bottomSection"> <!-- Start of bottom portion of div (contains "Go Now" Button)-->
+          <div class="sectionButtonRightContainer"> <!-- Start of Button div (alignment should alternate between left and right)-->
+            <a href="https://thechar.github.io/videogames.html">
+            <button class="sectionButtonRight">
+              Go Now!
+            </button><!--Go Now Button is placed here-->
+            </a>
+          </div>
+        </div> <!-- End of bottom portion of div-->
+      </div><!-- End of specific section div-->
+      <div style="width:auto;height:30px;"></div> <!--Separates sections-->
+      <div class="section"> <!-- Start of specific section div-->
+        <div class="topSection"> <!-- Start of top portion of div (contains title)-->
+          <div class="sectionTitleRight"> <!-- Start of Section title div (alignment should alternate between left and right)-->
+            The Great Outdoors
+          </div> <!-- End of Section title div-->
+        </div> <!-- End of top portion of div-->
+        <div class="middleSection"> <!-- Start of middle portion of div (contains previews)-->
+          <div class="middleSectionPreview"><!-- Start of preview 1 (use an iframe?)-->
+            <iframe src="https://thechar.github.io/index.html" class="middleSectionPreview"></iframe><!--Preview 1 iframe-->
+          </div> <!-- End of preview 1-->
+          <div class="middleSectionPreviewSeparators"></div> <!-- Preview Separator-->
+          <div class="middleSectionPreview"> <!-- Start of preview 2 (use an iframe?)-->
+            <iframe src="https://thechar.github.io/game.html" class="middleSectionPreview"></iframe><!--Preview 2 iframe-->
+          </div> <!-- End of preview 2-->
+          <div class="middleSectionPreviewSeparators"></div> <!-- Preview Separator-->
+          <div class="middleSectionPreview"> <!-- Start of preview 3 (use an iframe?)-->
+            <iframe src="https://thechar.github.io/coding.html" class="middleSectionPreview"></iframe><!--Preview 3 iframe-->
+          </div> <!-- End of preview 3-->
+          <div class="middleSectionPreviewSeparators"></div> <!-- Preview Separator-->
+          <div class="middleSectionPreview">
+            <iframe src="https://thechar.github.io/1710.html" class="middleSectionPreview"></iframe><!--Preview 4 iframe-->
+          </div>
+        </div> <!-- End of middle portion of div-->
+        <div class="bottomSection"> <!-- Start of bottom portion of div (contains "Go Now" Button)-->
+          <div class="sectionButtonLeftContainer"> <!-- Start of Button div (alignment should alternate between left and right)-->
+            <a href="https://thechar.github.io/thegreatoutdoors.html">
+            <button class="sectionButtonLeft">
+              Go Now!
+            </button><!--Go Now Button is placed here-->
+            </a>
+          </div>
+        </div> <!-- End of bottom portion of div-->
+      </div><!-- End of specific section div-->
+      <div style="width:auto;height:30px;"></div> <!--Separates sections-->
+      <div class="section"> <!-- Start of specific section div-->
+        <div class="topSection"> <!-- Start of top portion of div (contains title)-->
+          <div class="sectionTitleLeft"> <!-- Start of Section title div (alignment should alternate between left and right)-->
+            Books
+          </div> <!-- End of Section title div-->
+        </div> <!-- End of top portion of div-->
+        <div class="middleSection"> <!-- Start of middle portion of div (contains previews)-->
+          <div class="middleSectionPreview"><!-- Start of preview 1 (use an image?)-->
+            <iframe src="https://thechar.github.io/index.html" class="middleSectionPreview"></iframe><!--Preview 1 iframe-->
+          </div> <!-- End of preview 1-->
+          <div class="middleSectionPreviewSeparators"></div> <!-- Preview Separator-->
+          <div class="middleSectionPreview"> <!-- Start of preview 2 (use an iframe?)-->
+            <iframe src="https://thechar.github.io/game.html" class="middleSectionPreview"></iframe><!--Preview 2 iframe-->
+          </div> <!-- End of preview 2-->
+          <div class="middleSectionPreviewSeparators"></div> <!-- Preview Separator-->
+          <div class="middleSectionPreview"> <!-- Start of preview 3 (use an iframe?)-->
+            <iframe src="https://thechar.github.io/coding.html" class="middleSectionPreview"></iframe><!--Preview 3 iframe-->
+          </div> <!-- End of preview 3-->
+          <div class="middleSectionPreviewSeparators"></div> <!-- Preview Separator-->
+          <div class="middleSectionPreview">
+            <iframe src="https://thechar.github.io/1710.html" class="middleSectionPreview"></iframe><!--Preview 4 iframe-->
+          </div>
+        </div> <!-- End of middle portion of div-->
+        <div class="bottomSection"> <!-- Start of bottom portion of div (contains "Go Now" Button)-->
+          <div class="sectionButtonRightContainer"> <!-- Start of Button div (alignment should alternate between left and right)-->
+            <a href="https://thechar.github.io/books.html">
+            <button class="sectionButtonRight">
+              Go Now!
+            </button><!--Go Now Button is placed here-->
+            </a>
+          </div>
+        </div> <!-- End of bottom portion of div-->
+      </div><!-- End of specific section div-->
+      <div style="height:10px;"></div>
+      <div class="footer">
+        <p style="padding:15px;">&copy;Charlie Bergdall 2019</p>
+      </div>
+    </div> <!-- End of body below header-->
   </body>
-  </html>
+</html>
