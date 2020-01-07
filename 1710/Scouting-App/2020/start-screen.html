@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Start Match</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form action="script file here" method="post">
+            <center>
+                <label for="matchNum" autocomplete="off">
+                    <b>Match Number:</b>
+                </label>
+                <div class="col-xs-5">
+                    <input type="text" placeholder="Match #" name="matchNum" required>
+                </div>
+                <label for="teamNum" class="pt-1" autocomplete="off">
+                    <b>Team Number:</b>
+                </label>
+                <div class="col-xs-5">
+                    <input type="number" placeholder="Team #" name="teamNum" required>
+                </div>
+                <label for="allianceColor" class="pt-1">
+                    <b>Alliance Color:</b>
+                </label>
+                <div class="col-xs-5">
+                    <select required>
+                        <option value="red">Red Alliance</option>
+                        <option value="blue">Blue Alliance</option>
+                    </select>
+                </div>
+                <label for="startPos" class="pt-1">
+                    <b>Starting Position</b>
+                </label>
+                <div class="col-xs-5">
+                    <select required>
+                        <option value="left">Left</option>
+                        <option value="middle">Middle</option>
+                        <option value="right">Right</option>
+                    </select>
+                </div>
+                <label for="startPowerCells" class="pt-1">
+                    <b>Number of Startup Power Cells</b>
+                </label>
+                <div class="col-xs-5">
+                    <select required>
+                        <option value="0cell">0</option>
+                        <option value="1cell">1</option>
+                        <option value="2cell">2</option>
+                        <option value="3cell">3</option>
+                    </select>
+                </div>
+                <div class="pt-3">
+                    <button type="submit">Start Match</button>
+                </div>
+            </center>
+        </form>
+    </div>
+</body>
+</html>
