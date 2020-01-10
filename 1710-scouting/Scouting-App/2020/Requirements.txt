@@ -43,3 +43,4 @@ There should be indicators for:
     number of times robot has been disabled
     Number of points scored by robot
     Number of power cells scored by robot
+    shooting accuracy

@@ -1,0 +1,8 @@
+Shekel system
+sign in
+how to send data to system?
+sign up
+check calendar to see when a specific scout is scheduled
+bet on matches
+view leaderboards
+send feedback to dev(s)
