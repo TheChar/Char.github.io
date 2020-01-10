@@ -11,6 +11,7 @@ function removeElement(elementId) {
     element.parentNode.removeChild(element);
 }
 
+function changePage() {
 removeElement(matchNumLabel);
 removeElement(matchNumText);
 removeElement(inputDiv1);
@@ -42,3 +43,4 @@ removeElement(option8);
 removeElement(option9);
 removeElement(subButtonDiv);
 removeElement(subButton);
+}
