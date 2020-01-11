@@ -1,10 +1,97 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head id="head">
     <meta charset="utf-8" />
-    <title>Start Match</title>
+    <title id="title">Start Match</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="startMatch.js"></script>
+    <script>
+    function removeElement(elementId) {
+    var element = document.getElementById(elementId);
+    element.parentNode.removeChild(element);
+    }
+
+    function addElement(parentId, elementTag, elementId, elementClass, innerHtml) {
+    var p = document.getElementById(parentId);
+    var newElement = document.createElement(elementTag);
+    newElement.setAttribute('id', elementId);
+    newElement.setAttribute('class', elementClass);
+    newElement.innerHTML = innerHtml;
+    p.appendChild(newElement);
+    }
+
+    function startMatch() {
+        document.getElementById("title").innerHTML = 'Autonomous';
+        removeElement("startState");
+        addElement("centerTag", "div", "autoState", "", "");
+        addElement("autoState", "label", "initLineLabel", "pt-2", "");
+        document.getElementById("initLineLabel").setAttribute('for', 'initLine');
+        addElement("initLineLabel", "b", "initLineText", "text-white", "Crossed Init Line?");
+        addElement("autoState", "div", "initLineButtonDiv", "pt-1", "");
+        addElement("initLineButtonDiv", "button", "initLineYesButton", "mr-2", "Yes");
+        addElement("initLineButtonDiv", "button", "initLineNoButton", "ml-2", "No");
+        addElement("autoState", "label", "powerCellScoringLabel", "pt-4", "");
+        addElement("powerCellScoringLabel", "b", "powerCellScoringText", "text-white", "Power Cell Scoring");
+        addElement("autoState", "div", "powerCellScoringButtonDiv1", "pt-1", "");
+        addElement("powerCellScoringButtonDiv1", "button", "lvl1Score", "", "Base Score");
+        addElement("powerCellScoringButtonDiv1", "button", "lvl2Score", "", "Hex Score");
+        addElement("powerCellScoringButtonDiv1", "button", "lvl3Score", "", "Inner Score");
+        addElement("autoState", "div", "powerCellScoringButtonDiv2", "pt-1", "");
+        addElement("powerCellScoringButtonDiv2", "button", "lvl1Miss", "", "Base Miss");
+        addElement("powerCellScoringButtonDiv2", "button", "lvl2Miss", "", "Hexagon Miss");
+        addElement("autoState", "label", "foulLabel", "pt-4", "");
+        addElement("foulLabel", "b", "foulText", "text-white", "Committed a Foul?");
+        addElement("autoState", "div", "foulButtonDiv", "", "");
+        addElement("foulButtonDiv", "button", "foulButton", "", "Foul");
+        addElement("autoState", "button", "switchButton", "mt-5", "Switch to Teleop");
+        document.getElementById('switchButton').setAttribute('style', 'border:solid green');
+        document.getElementById('switchButton').setAttribute('onClick', 'startTeleop();');
+
+    }
+
+    function startTeleop() {
+        document.getElementById("title").innerHTML = 'Teleop';
+        document.getElementById('autoState').setAttribute('id', 'teleopState');
+        removeElement('foulLabel');
+        removeElement('foulButtonDiv');
+        removeElement('switchButton');
+        addElement('teleopState', 'label', 'controlPanelLabel', 'pt-4', '');
+        addElement('controlPanelLabel', 'b', 'controlPanelText', 'text-white', 'Control Panel Rotation');
+        addElement('teleopState', 'div', 'controlPanelDiv', '', '');
+        addElement('controlPanelDiv', 'button', 'stage1Button', '', 'Stage 1');
+        addElement('controlPanelDiv', 'button', 'stage2Button', '', 'Stage 2');
+        addElement('controlPanelDiv', 'button', 'stage3Button', '', 'Stage 3');
+        addElement('teleopState', 'label', 'climbLabel', 'pt-4', '');
+        addElement('climbLabel', 'b', 'climbText', 'text-white', 'Climb?');
+        addElement('teleopState', 'div', 'climbButtonDiv', '', '');
+        addElement('climbButtonDiv', 'button', 'levelButton', '', 'Level');
+        addElement('climbButtonDiv', 'button', 'notLevelButton', '', 'Not Level');
+        addElement("teleopState", "label", "foulLabel", "pt-4", "");
+        addElement("foulLabel", "b", "foulText", "text-white", "Committed a Foul?");
+        addElement("teleopState", "div", "foulButtonDiv", "", "");
+        addElement("foulButtonDiv", "button", "foulButton", "", "Foul");
+        addElement("teleopState", "button", "switchButton", "mt-5", "End Match");
+        document.getElementById('switchButton').setAttribute('style', 'border:solid green');
+        document.getElementById('switchButton').setAttribute('onClick', 'endMatch();');
+    }
+
+    function endMatch() {
+        removeElement('teleopState');
+        addElement('centerTag', 'div', 'gameOverDiv', '', '');
+        addElement('gameOverDiv', 'label', 'finalCommentLabel', 'pt-2', '');
+        addElement('finalCommentLabel', 'b', 'finalCommentText', 'text-white', 'Final Comments');
+        addElement('gameOverDiv', 'div', 'finalCommentInputDiv', '', '');
+        addElement('finalCommentInputDiv', 'input', 'finalCommentInput', '', '');
+        document.getElementById('finalCommentInput').setAttribute('type', 'text');
+        document.getElementById('finalCommentInput').setAttribute('placeholder', 'Enter final comments here');
+        addElement('gameOverDiv', 'button', 'submitResults', 'mt-5', 'Submit');
+        document.getElementById('submitResults').setAttribute('style', 'border:solid green');
+        document.getElementById('submitResults').setAttribute('onClick', 'submitForm();');
+    }
+
+    function submitForm() {
+        open('index.html');
+    }
+    </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -14,50 +101,52 @@
     <div class="container" id="formContainer">
         <form action="" method="post" id="form">
             <center id="centerTag">
-                <label for="matchNum" autocomplete="off" id="matchNumLabel">
-                    <b class="text-white" id="matchNumText">Match Number:</b>
-                </label>
-                <div class="col-xs-5" id="inputDiv1">
-                    <input type="text" id="input1" placeholder="Match #" name="matchNum" required>
-                </div>
-                <label for="teamNum" class="pt-1" autocomplete="off" id="teamNumLabel">
-                    <b class="text-white" id="teamNumText">Team Number:</b>
-                </label>
-                <div class="col-xs-5" id="inputDiv2">
-                    <input type="number" id="input2" placeholder="Team #" name="teamNum" required>
-                </div>
-                <label for="allianceColor" class="pt-1" id="allianceColorLabel">
-                    <b class="text-white" id="allianceColorText">Alliance Color:</b>
-                </label>
-                <div class="col-xs-5" id="inputDiv3">
-                    <select required id="select1">
-                        <option value="red" id="option1">Red Alliance</option>
-                        <option value="blue" id="option2">Blue Alliance</option>
-                    </select>
-                </div>
-                <label for="startPos" class="pt-1" id="startPosLabel">
-                    <b class="text-white" id="startPosText">Starting Position</b>
-                </label>
-                <div class="col-xs-5" id="inputDiv4">
-                    <select required id="select2">
-                        <option value="left" id="option3">Left</option>
-                        <option value="middle" id="option4">Middle</option>
-                        <option value="right" id="option5">Right</option>
-                    </select>
-                </div>
-                <label for="startPowerCells" class="pt-1" id="startPowerCellsLabel">
-                    <b class="text-white" id="startPowerCellsText">Number of Startup Power Cells</b>
-                </label>
-                <div class="col-xs-5" id="inputDiv5">
-                    <select required id="select3">
-                        <option value="0cell" id="option6">0</option>
-                        <option value="1cell" id="option7">1</option>
-                        <option value="2cell" id="option8">2</option>
-                        <option value="3cell" id="option9">3</option>
-                    </select>
-                </div>
-                <div class="pt-3" id="subButtonDiv">
-                    <button type="submit" onClick="changePage()" id="subButton">Start Match</button>
+                <div id="startState">
+                    <label for="matchNum" autocomplete="off" id="matchNumLabel">
+                        <b class="text-white" id="matchNumText">Match Number:</b>
+                    </label>
+                    <div class="col-xs-5" id="inputDiv1">
+                        <input type="text" id="input1" placeholder="Match #" name="matchNum" required>
+                    </div>
+                    <label for="teamNum" class="pt-1" autocomplete="off" id="teamNumLabel">
+                        <b class="text-white" id="teamNumText">Team Number:</b>
+                    </label>
+                    <div class="col-xs-5" id="inputDiv2">
+                        <input type="number" id="input2" placeholder="Team #" name="teamNum" required>
+                    </div>
+                    <label for="allianceColor" class="pt-1" id="allianceColorLabel">
+                        <b class="text-white" id="allianceColorText">Alliance Color:</b>
+                    </label>
+                    <div class="col-xs-5" id="inputDiv3">
+                        <select required id="select1">
+                            <option value="red" id="option1">Red Alliance</option>
+                            <option value="blue" id="option2">Blue Alliance</option>
+                        </select>
+                    </div>
+                    <label for="startPos" class="pt-1" id="startPosLabel">
+                        <b class="text-white" id="startPosText">Starting Position</b>
+                    </label>
+                    <div class="col-xs-5" id="inputDiv4">
+                        <select required id="select2">
+                            <option value="left" id="option3">Left</option>
+                            <option value="middle" id="option4">Middle</option>
+                            <option value="right" id="option5">Right</option>
+                        </select>
+                    </div>
+                    <label for="startPowerCells" class="pt-1" id="startPowerCellsLabel">
+                        <b class="text-white" id="startPowerCellsText">Number of Startup Power Cells</b>
+                    </label>
+                    <div class="col-xs-5" id="inputDiv5">
+                        <select required id="select3">
+                            <option value="0cell" id="option6">0</option>
+                            <option value="1cell" id="option7">1</option>
+                            <option value="2cell" id="option8">2</option>
+                            <option value="3cell" id="option9">3</option>
+                        </select>
+                    </div>
+                    <div class="pt-3" id="subButtonDiv">
+                        <button type="submit" onClick="startMatch();" id="subButton">Start Match</button>
+                    </div>
                 </div>
             </center>
         </form>
