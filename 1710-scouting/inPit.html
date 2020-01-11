@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Scout a Pit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script>
+        function removeElement(elementId) {
+    var element = document.getElementById(elementId);
+    element.parentNode.removeChild(element);
+    }
+
+    function addElement(parentId, elementTag, elementId, elementClass, innerHtml) {
+    var p = document.getElementById(parentId);
+    var newElement = document.createElement(elementTag);
+    newElement.setAttribute('id', elementId);
+    newElement.setAttribute('class', elementClass);
+    newElement.innerHTML = innerHtml;
+    p.appendChild(newElement);
+    }
+
+    function select0cell() {
+        document.getElementById('0cellCap').setAttribute('class', 'btn btn-warning btn-lg');
+        document.getElementById('1cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('2cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('3cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('4cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('5cellCap').setAttribute('class', 'btn btn-primary');
+    }
+
+    function select1cell() {
+        document.getElementById('0cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('1cellCap').setAttribute('class', 'btn btn-warning btn-lg');
+        document.getElementById('2cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('3cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('4cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('5cellCap').setAttribute('class', 'btn btn-primary');
+    }
+
+    function select2cell() {
+        document.getElementById('0cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('1cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('2cellCap').setAttribute('class', 'btn btn-warning btn-lg');
+        document.getElementById('3cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('4cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('5cellCap').setAttribute('class', 'btn btn-primary');
+    }
+
+    function select3cell() {
+        document.getElementById('0cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('1cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('2cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('3cellCap').setAttribute('class', 'btn btn-warning btn-lg');
+        document.getElementById('4cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('5cellCap').setAttribute('class', 'btn btn-primary');
+    }
+
+    function select4cell() {
+        document.getElementById('0cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('1cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('2cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('3cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('4cellCap').setAttribute('class', 'btn btn-warning btn-lg');
+        document.getElementById('5cellCap').setAttribute('class', 'btn btn-primary');
+    }
+
+    function select5cell() {
+        document.getElementById('0cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('1cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('2cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('3cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('4cellCap').setAttribute('class', 'btn btn-primary');
+        document.getElementById('5cellCap').setAttribute('class', 'btn btn-warning btn-lg');
+    }
+
+    function select(elementId) {
+        var element = document.getElementById(elementId);
+        if(element.classList == 'btn btn-primary') {
+            element.setAttribute('class', 'btn btn-warning');
+        } else if(element.classList == 'btn btn-warning') {
+            element.setAttribute('class', 'btn btn-primary');
+        }
+    }
+    </script>
+</head>
+<body style="background-color: rgb(54, 59, 66)">
+        <div class="container"> 
+            <form>
+                <center id="centerTag">
+                    <div id="pitContainer">
+                        <label for="teamNum" class="pt-1" autocomplete="off" id="teamNumLabel">
+                            <b class="text-white" id="teamNumText">Team Number:</b>
+                        </label>
+                        <div class="col-xs-5" id="inputDiv1">
+                            <input type="number" id="input1" placeholder="Team #" name="teamNum" required>
+                        </div>
+                        <label class="pt-5" id="cellCapLabel">
+                            <b class="text-white" id="cellCapText">Power Cell Capacity</b>
+                        </label>
+                        <div class="col-x-12">
+                            <button type="button" class="btn btn-primary" id="0cellCap" onclick="select0cell();">0</button>
+                            <button type="button" class="btn btn-primary" id="1cellCap" onclick="select1cell();">1</button>
+                            <button type="button" class="btn btn-primary" id="2cellCap" onclick="select2cell();">2</button>
+                            <button type="button" class="btn btn-primary" id="3cellCap" onclick="select3cell();">3</button>
+                            <button type="button" class="btn btn-primary" id="4cellCap" onclick="select4cell();">4</button>
+                            <button type="button" class="btn btn-primary" id="5cellCap" onclick="select5cell();">5</button>
+                        </div>
+                        <label class="pt-5" id="stratLabel">
+                            <b class="text-white" id="stratText">Team Strategies</b>
+                        </label>
+                        <div class="col-xs-12">
+                            <button type="button" class="btn btn-primary" id="defenseBtn" onclick="select('defenseBtn');">Defense</button>
+                        </div>
+                        <div class="col-xs-12 pt-2">
+                            <button type="button" class="btn btn-primary" onclick="select('ctrlPanelBtn');" id='ctrlPanelBtn'>Control Panel</button>
+                            <button type="button" class="btn btn-primary" id='climbBtn' onclick="select('climbBtn');">Climb</button>
+                        </div>
+                        <div class="col-xs-12 pt-2">
+                            <button type="button" class="btn btn-primary" id="score1" onclick="select('score1');">Base Scoring</button>
+                            <button type="button" class="btn btn-primary" id="score2" onclick="select('score2');">Hex Scoring</button>
+                            <button type="button" class="btn btn-primary" id="score3" onclick="select('score3');">Inner Scoring</button>
+                        </div>
+                    </div>
+                </center>
+            </form>
+        </div>
+    </body>
+</html>

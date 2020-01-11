@@ -2,7 +2,7 @@
 <html>
 <head id="head">
     <meta charset="utf-8" />
-    <title id="title">Start Match</title>
+    <title id="title">Scout a Match</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
     function removeElement(elementId) {
@@ -27,23 +27,32 @@
         document.getElementById("initLineLabel").setAttribute('for', 'initLine');
         addElement("initLineLabel", "b", "initLineText", "text-white", "Crossed Init Line?");
         addElement("autoState", "div", "initLineButtonDiv", "pt-1", "");
-        addElement("initLineButtonDiv", "button", "initLineYesButton", "mr-2", "Yes");
-        addElement("initLineButtonDiv", "button", "initLineNoButton", "ml-2", "No");
+        addElement("initLineButtonDiv", "button", "initLineYesButton", "m-1 btn btn-secondary", "Yes");
+        document.getElementById('initLineYesButton').setAttribute('onclick', 'selectInitLineYes();');
+        document.getElementById('initLineYesButton').setAttribute('type', 'button');
+        addElement("initLineButtonDiv", "button", "initLineNoButton", "m-1 btn btn-secondary", "No");
+        document.getElementById('initLineNoButton').setAttribute('onclick', 'selectInitLineNo();');
+        document.getElementById('initLineNoButton').setAttribute('type', 'button');
         addElement("autoState", "label", "powerCellScoringLabel", "pt-4", "");
         addElement("powerCellScoringLabel", "b", "powerCellScoringText", "text-white", "Power Cell Scoring");
         addElement("autoState", "div", "powerCellScoringButtonDiv1", "pt-1", "");
-        addElement("powerCellScoringButtonDiv1", "button", "lvl1Score", "", "Base Score");
-        addElement("powerCellScoringButtonDiv1", "button", "lvl2Score", "", "Hex Score");
-        addElement("powerCellScoringButtonDiv1", "button", "lvl3Score", "", "Inner Score");
+        addElement("powerCellScoringButtonDiv1", "button", "lvl1Score", "btn btn-secondary m-1", "Base Score");
+        document.getElementById('lvl1Score').setAttribute('type', 'button');
+        addElement("powerCellScoringButtonDiv1", "button", "lvl2Score", "btn btn-secondary m-1", "Hex Score");
+        document.getElementById('lvl2Score').setAttribute('type', 'button');
+        addElement("powerCellScoringButtonDiv1", "button", "lvl3Score", "btn btn-secondary m-1", "Inner Score");
+        document.getElementById('lvl3Score').setAttribute('type', 'button');
         addElement("autoState", "div", "powerCellScoringButtonDiv2", "pt-1", "");
-        addElement("powerCellScoringButtonDiv2", "button", "lvl1Miss", "", "Base Miss");
-        addElement("powerCellScoringButtonDiv2", "button", "lvl2Miss", "", "Hexagon Miss");
+        addElement("powerCellScoringButtonDiv2", "button", "lvl1Miss", "btn btn-secondary m-1", "Base Miss");
+        document.getElementById('lvl1Miss').setAttribute('type', 'button');
+        addElement("powerCellScoringButtonDiv2", "button", "lvl2Miss", "btn btn-secondary m-1", "Hex Miss");
+        document.getElementById('lvl2Miss').setAttribute('type', 'button');
         addElement("autoState", "label", "foulLabel", "pt-4", "");
         addElement("foulLabel", "b", "foulText", "text-white", "Committed a Foul?");
         addElement("autoState", "div", "foulButtonDiv", "", "");
-        addElement("foulButtonDiv", "button", "foulButton", "", "Foul");
-        addElement("autoState", "button", "switchButton", "mt-5", "Switch to Teleop");
-        document.getElementById('switchButton').setAttribute('style', 'border:solid green');
+        addElement("foulButtonDiv", "button", "foulButton", "btn btn-secondary", "Foul");
+        document.getElementById('foulButton').setAttribute('type', 'button');
+        addElement("autoState", "button", "switchButton", "mt-5 btn btn-success btn-lg", "Switch to Teleop");
         document.getElementById('switchButton').setAttribute('onClick', 'startTeleop();');
 
     }
@@ -57,24 +66,33 @@
         addElement('teleopState', 'label', 'controlPanelLabel', 'pt-4', '');
         addElement('controlPanelLabel', 'b', 'controlPanelText', 'text-white', 'Control Panel Rotation');
         addElement('teleopState', 'div', 'controlPanelDiv', '', '');
-        addElement('controlPanelDiv', 'button', 'stage1Button', '', 'Stage 1');
-        addElement('controlPanelDiv', 'button', 'stage2Button', '', 'Stage 2');
-        addElement('controlPanelDiv', 'button', 'stage3Button', '', 'Stage 3');
+        addElement('controlPanelDiv', 'button', 'stage1Button', 'btn btn-secondary m-1', 'Stage 1');
+        document.getElementById('stage1Button').setAttribute('type', 'button');
+        addElement('controlPanelDiv', 'button', 'stage2Button', 'btn btn-secondary m-1', 'Stage 2');
+        document.getElementById('stage2Button').setAttribute('type', 'button');
+        addElement('controlPanelDiv', 'button', 'stage3Button', 'btn btn-secondary m-1', 'Stage 3');
+        document.getElementById('stage3Button').setAttribute('type', 'button');
         addElement('teleopState', 'label', 'climbLabel', 'pt-4', '');
         addElement('climbLabel', 'b', 'climbText', 'text-white', 'Climb?');
         addElement('teleopState', 'div', 'climbButtonDiv', '', '');
-        addElement('climbButtonDiv', 'button', 'levelButton', '', 'Level');
-        addElement('climbButtonDiv', 'button', 'notLevelButton', '', 'Not Level');
+        addElement('climbButtonDiv', 'button', 'levelButton', 'btn btn-secondary m-1', 'Level');
+        document.getElementById('levelButton').setAttribute('onclick', 'selectLevelBtn();');
+        document.getElementById('levelButton').setAttribute('type', 'button');
+        addElement('climbButtonDiv', 'button', 'notLevelButton', 'btn btn-secondary m-1', 'Not Level');
+        document.getElementById('notLevelButton').setAttribute('onclick', 'selectNotLevelBtn();');
+        document.getElementById('notLevelButton').setAttribute('type', 'button');
         addElement("teleopState", "label", "foulLabel", "pt-4", "");
         addElement("foulLabel", "b", "foulText", "text-white", "Committed a Foul?");
         addElement("teleopState", "div", "foulButtonDiv", "", "");
-        addElement("foulButtonDiv", "button", "foulButton", "", "Foul");
-        addElement("teleopState", "button", "switchButton", "mt-5", "End Match");
-        document.getElementById('switchButton').setAttribute('style', 'border:solid green');
+        addElement("foulButtonDiv", "button", "foulButton", "btn btn-secondary", "Foul");
+        document.getElementById('foulButton').setAttribute('type', 'button');
+        addElement("teleopState", "button", "switchButton", "mt-5 btn btn-success btn-lg", "End Match");
+        document.getElementById('switchButton').setAttribute('type', 'submit');
         document.getElementById('switchButton').setAttribute('onClick', 'endMatch();');
     }
 
     function endMatch() {
+        document.getElementById('title').innerHTML = 'Game Over'
         removeElement('teleopState');
         addElement('centerTag', 'div', 'gameOverDiv', '', '');
         addElement('gameOverDiv', 'label', 'finalCommentLabel', 'pt-2', '');
@@ -82,14 +100,90 @@
         addElement('gameOverDiv', 'div', 'finalCommentInputDiv', '', '');
         addElement('finalCommentInputDiv', 'input', 'finalCommentInput', '', '');
         document.getElementById('finalCommentInput').setAttribute('type', 'text');
-        document.getElementById('finalCommentInput').setAttribute('placeholder', 'Enter final comments here');
-        addElement('gameOverDiv', 'button', 'submitResults', 'mt-5', 'Submit');
-        document.getElementById('submitResults').setAttribute('style', 'border:solid green');
+        document.getElementById('finalCommentInput').setAttribute('placeholder', '--Enter final comments here--');
+        document.getElementById('finalCommentInput').setAttribute('style', 'width:80%');
+        addElement('gameOverDiv', 'button', 'submitResults', 'mt-5 btn btn-success btn-lg', 'Submit');
         document.getElementById('submitResults').setAttribute('onClick', 'submitForm();');
     }
 
     function submitForm() {
-        open('index.html');
+        open('hub.html');
+    }
+
+    function selectRedBtn() {
+        document.getElementById('redAllianceBtn').setAttribute('class', 'btn btn-danger btn-lg');
+        document.getElementById('blueAllianceBtn').setAttribute('class', 'btn btn-secondary');
+    }
+
+    function selectBlueBtn() {
+        document.getElementById('blueAllianceBtn').setAttribute('class', 'btn btn-primary btn-lg');
+        document.getElementById('redAllianceBtn').setAttribute('class', 'btn btn-secondary');
+    }
+
+    function selectLeftBtn() {
+        document.getElementById('startLeftBtn').setAttribute('class', 'btn btn-warning btn-lg');
+        document.getElementById('startMidBtn').setAttribute('class', 'btn btn-secondary');
+        document.getElementById('startRightBtn').setAttribute('class', 'btn btn-secondary');
+    }
+
+    function selectMidBtn() {
+        document.getElementById('startLeftBtn').setAttribute('class', 'btn btn-secondary');
+        document.getElementById('startMidBtn').setAttribute('class', 'btn btn-warning btn-lg');
+        document.getElementById('startRightBtn').setAttribute('class', 'btn btn-secondary');
+    }
+
+    function selectRightBtn() {
+        document.getElementById('startLeftBtn').setAttribute('class', 'btn btn-secondary');
+        document.getElementById('startMidBtn').setAttribute('class', 'btn btn-secondary');
+        document.getElementById('startRightBtn').setAttribute('class', 'btn btn-warning btn-lg');
+    }
+
+    function select0cell() {
+        document.getElementById('start0cell').setAttribute('class', 'btn btn-warning btn-lg');
+        document.getElementById('start1cell').setAttribute('class', 'btn btn-secondary');
+        document.getElementById('start2cell').setAttribute('class', 'btn btn-secondary');
+        document.getElementById('start3cell').setAttribute('class', 'btn btn-secondary');
+    }
+
+    function select1cell() {
+        document.getElementById('start0cell').setAttribute('class', 'btn btn-secondary');
+        document.getElementById('start1cell').setAttribute('class', 'btn btn-warning btn-lg');
+        document.getElementById('start2cell').setAttribute('class', 'btn btn-secondary');
+        document.getElementById('start3cell').setAttribute('class', 'btn btn-secondary');
+    }
+
+    function select2cell() {
+        document.getElementById('start0cell').setAttribute('class', 'btn btn-secondary');
+        document.getElementById('start1cell').setAttribute('class', 'btn btn-secondary');
+        document.getElementById('start2cell').setAttribute('class', 'btn btn-warning btn-lg');
+        document.getElementById('start3cell').setAttribute('class', 'btn btn-secondary');
+    }
+
+    function select3cell() {
+        document.getElementById('start0cell').setAttribute('class', 'btn btn-secondary');
+        document.getElementById('start1cell').setAttribute('class', 'btn btn-secondary');
+        document.getElementById('start2cell').setAttribute('class', 'btn btn-secondary');
+        document.getElementById('start3cell').setAttribute('class', 'btn btn-warning btn-lg');
+    }
+
+    function selectInitLineYes() {
+        document.getElementById('initLineYesButton').setAttribute('class', 'm-1 btn btn-warning btn-lg');
+        document.getElementById('initLineNoButton').setAttribute('class', 'm-1 btn btn-secondary');
+    }
+
+    function selectInitLineNo() {
+        document.getElementById('initLineYesButton').setAttribute('class', 'm-1 btn btn-secondary');
+        document.getElementById('initLineNoButton').setAttribute('class', 'm-1 btn btn-warning btn-lg');
+    }
+
+    function selectLevelBtn() {
+        document.getElementById('levelButton').setAttribute('class', 'm-1 btn btn-warning btn-lg');
+        document.getElementById('notLevelButton').setAttribute('class', 'm-1 btn btn-secondary');
+    }
+
+    function selectNotLevelBtn() {
+        document.getElementById('levelButton').setAttribute('class', 'm-1 btn btn-secondary');
+        document.getElementById('notLevelButton').setAttribute('class', 'm-1 btn btn-warning btn-lg');
     }
     </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -118,34 +212,28 @@
                         <b class="text-white" id="allianceColorText">Alliance Color:</b>
                     </label>
                     <div class="col-xs-5" id="inputDiv3">
-                        <select required id="select1">
-                            <option value="red" id="option1">Red Alliance</option>
-                            <option value="blue" id="option2">Blue Alliance</option>
-                        </select>
+                        <button type="button" class="btn btn-secondary" id="redAllianceBtn" onclick="selectRedBtn();">Red Alliance</button>
+                        <button type="button" class="btn btn-secondary" id="blueAllianceBtn" onclick="selectBlueBtn();">Blue Alliance</button>
                     </div>
                     <label for="startPos" class="pt-1" id="startPosLabel">
                         <b class="text-white" id="startPosText">Starting Position</b>
                     </label>
                     <div class="col-xs-5" id="inputDiv4">
-                        <select required id="select2">
-                            <option value="left" id="option3">Left</option>
-                            <option value="middle" id="option4">Middle</option>
-                            <option value="right" id="option5">Right</option>
-                        </select>
+                        <button type="button" class="btn btn-secondary" id="startLeftBtn" onclick="selectLeftBtn();">Left</button>
+                        <button type="button" class="btn btn-secondary" id="startMidBtn" onclick="selectMidBtn();">Middle</button>
+                        <button type="button" class="btn btn-secondary" id="startRightBtn" onclick="selectRightBtn();">Right</button>
                     </div>
                     <label for="startPowerCells" class="pt-1" id="startPowerCellsLabel">
                         <b class="text-white" id="startPowerCellsText">Number of Startup Power Cells</b>
                     </label>
                     <div class="col-xs-5" id="inputDiv5">
-                        <select required id="select3">
-                            <option value="0cell" id="option6">0</option>
-                            <option value="1cell" id="option7">1</option>
-                            <option value="2cell" id="option8">2</option>
-                            <option value="3cell" id="option9">3</option>
-                        </select>
+                        <button type="button" class="btn btn-secondary" id="start0cell" onclick="select0cell();">0</button>
+                        <button type="button" class="btn btn-secondary" id="start1cell" onclick="select1cell();">1</button>
+                        <button type="button" class="btn btn-secondary" id="start2cell" onclick="select2cell();">2</button>
+                        <button type="button" class="btn btn-secondary" id="start3cell" onclick="select3cell();">3</button>
                     </div>
                     <div class="pt-3" id="subButtonDiv">
-                        <button type="submit" onClick="startMatch();" id="subButton">Start Match</button>
+                        <button type="submit" onClick="startMatch();" id="subButton" class="btn btn-success btn-lg mt-2">Start Match</button>
                     </div>
                 </div>
             </center>
