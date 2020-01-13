@@ -21,11 +21,12 @@
 
     function startMatch() {
         document.getElementById("title").innerHTML = 'Autonomous';
+        document.getElementById('pageHeaderText').innerHTML = 'Autonomous';
         removeElement("startState");
         addElement("centerTag", "div", "autoState", "", "");
         addElement("autoState", "label", "initLineLabel", "pt-2", "");
         document.getElementById("initLineLabel").setAttribute('for', 'initLine');
-        addElement("initLineLabel", "b", "initLineText", "text-white", "Crossed Init Line?");
+        addElement("initLineLabel", "b", "initLineText", "text-white", "Moved from Init Line?");
         addElement("autoState", "div", "initLineButtonDiv", "pt-1", "");
         addElement("initLineButtonDiv", "button", "initLineYesButton", "m-1 btn btn-secondary", "Yes");
         document.getElementById('initLineYesButton').setAttribute('onclick', 'selectInitLineYes();');
@@ -33,23 +34,23 @@
         addElement("initLineButtonDiv", "button", "initLineNoButton", "m-1 btn btn-secondary", "No");
         document.getElementById('initLineNoButton').setAttribute('onclick', 'selectInitLineNo();');
         document.getElementById('initLineNoButton').setAttribute('type', 'button');
-        addElement("autoState", "label", "powerCellScoringLabel", "pt-4", "");
+        addElement("autoState", "label", "powerCellScoringLabel", "pt-3", "");
         addElement("powerCellScoringLabel", "b", "powerCellScoringText", "text-white", "Power Cell Scoring");
         addElement("autoState", "div", "powerCellScoringButtonDiv1", "pt-1", "");
-        addElement("powerCellScoringButtonDiv1", "button", "lvl1Score", "btn btn-secondary m-1", "Base Score");
+        addElement("powerCellScoringButtonDiv1", "button", "lvl1Score", "btn btn-secondary m-1", "Bottom Port Score");
         document.getElementById('lvl1Score').setAttribute('type', 'button');
-        addElement("powerCellScoringButtonDiv1", "button", "lvl2Score", "btn btn-secondary m-1", "Hex Score");
+        addElement("powerCellScoringButtonDiv1", "button", "lvl2Score", "btn btn-secondary m-1", "Outer Port Score");
         document.getElementById('lvl2Score').setAttribute('type', 'button');
-        addElement("powerCellScoringButtonDiv1", "button", "lvl3Score", "btn btn-secondary m-1", "Inner Score");
+        addElement("powerCellScoringButtonDiv1", "button", "lvl3Score", "btn btn-secondary m-1", "Inner Port Score");
         document.getElementById('lvl3Score').setAttribute('type', 'button');
         addElement("autoState", "div", "powerCellScoringButtonDiv2", "pt-1", "");
-        addElement("powerCellScoringButtonDiv2", "button", "lvl1Miss", "btn btn-secondary m-1", "Base Miss");
+        addElement("powerCellScoringButtonDiv2", "button", "lvl1Miss", "btn btn-secondary m-1", "Bottom Port Miss");
         document.getElementById('lvl1Miss').setAttribute('type', 'button');
-        addElement("powerCellScoringButtonDiv2", "button", "lvl2Miss", "btn btn-secondary m-1", "Hex Miss");
+        addElement("powerCellScoringButtonDiv2", "button", "lvl2Miss", "btn btn-secondary m-1", "Outer Port Miss");
         document.getElementById('lvl2Miss').setAttribute('type', 'button');
-        addElement("autoState", "label", "foulLabel", "pt-4", "");
+        addElement("autoState", "label", "foulLabel", "pt-3", "");
         addElement("foulLabel", "b", "foulText", "text-white", "Committed a Foul?");
-        addElement("autoState", "div", "foulButtonDiv", "", "");
+        addElement("autoState", "div", "foulButtonDiv", "pt-1", "");
         addElement("foulButtonDiv", "button", "foulButton", "btn btn-secondary", "Foul");
         document.getElementById('foulButton').setAttribute('type', 'button');
         addElement("autoState", "button", "switchButton", "mt-5 btn btn-success btn-lg", "Switch to Teleop");
@@ -59,31 +60,33 @@
 
     function startTeleop() {
         document.getElementById("title").innerHTML = 'Teleop';
+        document.getElementById('pageHeaderText').innerHTML = 'Teleop';
         document.getElementById('autoState').setAttribute('id', 'teleopState');
         removeElement('foulLabel');
         removeElement('foulButtonDiv');
         removeElement('switchButton');
-        addElement('teleopState', 'label', 'controlPanelLabel', 'pt-4', '');
-        addElement('controlPanelLabel', 'b', 'controlPanelText', 'text-white', 'Control Panel Rotation');
-        addElement('teleopState', 'div', 'controlPanelDiv', '', '');
-        addElement('controlPanelDiv', 'button', 'stage1Button', 'btn btn-secondary m-1', 'Stage 1');
-        document.getElementById('stage1Button').setAttribute('type', 'button');
+        removeElement('initLineLabel');
+        removeElement('initLineYesButton');
+        removeElement('initLineNoButton');
+        addElement('teleopState', 'label', 'controlPanelLabel', 'pt-3', '');
+        addElement('controlPanelLabel', 'b', 'controlPanelText', 'text-white', 'Control Panel Manipulation');
+        addElement('teleopState', 'div', 'controlPanelDiv', 'pt-1', '');
         addElement('controlPanelDiv', 'button', 'stage2Button', 'btn btn-secondary m-1', 'Stage 2');
         document.getElementById('stage2Button').setAttribute('type', 'button');
         addElement('controlPanelDiv', 'button', 'stage3Button', 'btn btn-secondary m-1', 'Stage 3');
         document.getElementById('stage3Button').setAttribute('type', 'button');
-        addElement('teleopState', 'label', 'climbLabel', 'pt-4', '');
+        addElement('teleopState', 'label', 'climbLabel', 'pt-3', '');
         addElement('climbLabel', 'b', 'climbText', 'text-white', 'Climb?');
-        addElement('teleopState', 'div', 'climbButtonDiv', '', '');
+        addElement('teleopState', 'div', 'climbButtonDiv', 'pt-1', '');
         addElement('climbButtonDiv', 'button', 'levelButton', 'btn btn-secondary m-1', 'Level');
         document.getElementById('levelButton').setAttribute('onclick', 'selectLevelBtn();');
         document.getElementById('levelButton').setAttribute('type', 'button');
         addElement('climbButtonDiv', 'button', 'notLevelButton', 'btn btn-secondary m-1', 'Not Level');
         document.getElementById('notLevelButton').setAttribute('onclick', 'selectNotLevelBtn();');
         document.getElementById('notLevelButton').setAttribute('type', 'button');
-        addElement("teleopState", "label", "foulLabel", "pt-4", "");
+        addElement("teleopState", "label", "foulLabel", "pt-3", "");
         addElement("foulLabel", "b", "foulText", "text-white", "Committed a Foul?");
-        addElement("teleopState", "div", "foulButtonDiv", "", "");
+        addElement("teleopState", "div", "foulButtonDiv", "pt-1", "");
         addElement("foulButtonDiv", "button", "foulButton", "btn btn-secondary", "Foul");
         document.getElementById('foulButton').setAttribute('type', 'button');
         addElement("teleopState", "button", "switchButton", "mt-5 mb-3 btn btn-success btn-lg", "End Match");
@@ -93,6 +96,7 @@
 
     function endMatch() {
         document.getElementById('title').innerHTML = 'Game Over'
+        document.getElementById('pageHeaderText').innerHTML = 'Post-Match';
         removeElement('teleopState');
         addElement('centerTag', 'div', 'gameOverDiv', '', '');
         addElement('gameOverDiv', 'label', 'finalCommentLabel', 'pt-2', '');
@@ -107,7 +111,7 @@
     }
 
     function submitForm() {
-        open('hub.html');
+        window.open('hub.html', '_self');
     }
 
     function selectRedBtn() {
@@ -193,46 +197,47 @@
 </head>
 <body style="background-color:rgb(54, 59, 66)" id="bodyTag">
     <div class="container" id="formContainer">
-        <form action="" method="post" id="form">
+        <form action="hub.html" method="post" id="form">
             <center id="centerTag">
+                <h1 class="display-4 text-white" id="pageHeaderText">Pre-Match</h1>
                 <div id="startState">
-                    <label for="matchNum" autocomplete="off" id="matchNumLabel">
+                    <label for="matchNum" autocomplete="off" id="matchNumLabel" class="pt-2">
                         <b class="text-white" id="matchNumText">Match Number:</b>
                     </label>
-                    <div class="col-xs-5" id="inputDiv1">
+                    <div class="col-xs-5 pt-1" id="inputDiv1">
                         <input type="text" id="input1" placeholder="Match #" name="matchNum" required>
                     </div>
-                    <label for="teamNum" class="pt-1" autocomplete="off" id="teamNumLabel">
+                    <label for="teamNum" class="pt-3" autocomplete="off" id="teamNumLabel">
                         <b class="text-white" id="teamNumText">Team Number:</b>
                     </label>
-                    <div class="col-xs-5" id="inputDiv2">
+                    <div class="col-xs-5 pt-1" id="inputDiv2">
                         <input type="number" id="input2" placeholder="Team #" name="teamNum" required>
                     </div>
-                    <label for="allianceColor" class="pt-1" id="allianceColorLabel">
+                    <label for="allianceColor" class="pt-3" id="allianceColorLabel">
                         <b class="text-white" id="allianceColorText">Alliance Color:</b>
                     </label>
-                    <div class="col-xs-5" id="inputDiv3">
+                    <div class="col-xs-5 pt-1" id="inputDiv3">
                         <button type="button" class="btn btn-secondary" id="redAllianceBtn" onclick="selectRedBtn();">Red Alliance</button>
                         <button type="button" class="btn btn-secondary" id="blueAllianceBtn" onclick="selectBlueBtn();">Blue Alliance</button>
                     </div>
-                    <label for="startPos" class="pt-1" id="startPosLabel">
+                    <label for="startPos" class="pt-3" id="startPosLabel">
                         <b class="text-white" id="startPosText">Starting Position</b>
                     </label>
-                    <div class="col-xs-5" id="inputDiv4">
+                    <div class="col-xs-5 pt-1" id="inputDiv4">
                         <button type="button" class="btn btn-secondary" id="startLeftBtn" onclick="selectLeftBtn();">Left</button>
                         <button type="button" class="btn btn-secondary" id="startMidBtn" onclick="selectMidBtn();">Middle</button>
                         <button type="button" class="btn btn-secondary" id="startRightBtn" onclick="selectRightBtn();">Right</button>
                     </div>
-                    <label for="startPowerCells" class="pt-1" id="startPowerCellsLabel">
-                        <b class="text-white" id="startPowerCellsText">Number of Startup Power Cells</b>
+                    <label for="startPowerCells" class="pt-3" id="startPowerCellsLabel">
+                        <b class="text-white" id="startPowerCellsText">Number of Preloaded Power Cells</b>
                     </label>
-                    <div class="col-xs-5" id="inputDiv5">
+                    <div class="col-xs-5 pt-1" id="inputDiv5">
                         <button type="button" class="btn btn-secondary" id="start0cell" onclick="select0cell();">0</button>
                         <button type="button" class="btn btn-secondary" id="start1cell" onclick="select1cell();">1</button>
                         <button type="button" class="btn btn-secondary" id="start2cell" onclick="select2cell();">2</button>
                         <button type="button" class="btn btn-secondary" id="start3cell" onclick="select3cell();">3</button>
                     </div>
-                    <div class="pt-3" id="subButtonDiv">
+                    <div class="pt-4" id="subButtonDiv">
                         <button type="submit" onClick="startMatch();" id="subButton" class="btn btn-success btn-lg mt-2">Start Match</button>
                     </div>
                 </div>

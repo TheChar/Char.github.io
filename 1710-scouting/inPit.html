@@ -85,18 +85,118 @@
             element.setAttribute('class', 'btn btn-primary');
         }
     }
+
+    function submitForm() {
+        window.open('hub.html', '_self');
+    }
+
+    var isAutoUsed = false;
+
+    function selectAutoBtn() {
+        document.getElementById('autoBtn').setAttribute('class', 'btn btn-warning btn-lg');
+        document.getElementById('teleopBtn').setAttribute('class', 'btn btn-primary');
+        document.getElementById('endgameBtn').setAttribute('class', 'btn btn-primary');
+        if(!isAutoUsed) {
+            if(isTeleopUsed) {
+                document.getElementById('teleopState').innerHTML = '';
+                document.getElementById('teleopState').setAttribute('id', 'autoState');
+            } else if(isEndgameUsed) {
+                document.getElementById('endgameState').innerHTML = '';
+                document.getElementById('endgameState').setAttribute('id', 'autoState');
+            }
+            addElement('autoState', 'label', 'stratLabel', 'pt-5', '');
+            addElement('stratLabel', 'b', 'stratText', 'text-white', 'Team Strategies');
+            addElement('autoState', 'div', 'defenseBtnDiv', 'pt-4', '');
+            addElement('defenseBtnDiv', 'div', 'defenseBtnContainer', 'col-xs-12', '');
+            addElement('defenseBtnContainer', 'button', 'defenseBtn', 'btn btn-primary', 'Defense');
+            document.getElementById('defenseBtn').setAttribute('onclick', 'selectDefenseBtn();');
+            addElement('autoState', 'div', 'ctrlPanelBtnDiv', 'pt-4', '');
+            addElement('ctrlPanelBtnDiv', 'div', 'ctrlPanelBtnContainer', 'col-xs-12', '');
+            addElement('ctrlPanelBtnContainer', 'button', 'ctrlPanelBtn', 'btn btn-primary', 'Control Panel');
+            document.getElementById('ctrlPanelBtn').setAttribute('onclick', 'selectCtrlPanelBtn();')
+            addElement('autoState', 'div', 'climbBtnDiv', 'pt-4', '');
+            addElement('climbBtnDiv', 'div', 'climbBtnContainer', 'col-xs-12', '');
+            addElement('climbBtnContainer', 'button', 'climbBtn', 'btn btn-primary', 'Climb');
+            document.getElementById('climbBtn').setAttribute('onclick', 'selectClimbBtn();');
+            addElement('autoState', 'div', 'scoreDiv', 'col-xs-12 pt-4', '');
+            addElement('scoreDiv', 'button', 'score1', 'mx-1 btn btn-primary', 'Base Scoring');
+            document.getElementById('score1').setAttribute('type', 'button');
+            document.getElementById('score1').setAttribute('onclick', 'select("score1");');
+            addElement('scoreDiv', 'button', 'score2', 'mx-1 btn btn-primary', 'Hex Scoring');
+            document.getElementById('score2').setAttribute('type', 'button');
+            document.getElementById('score2').setAttribute('onclick', 'select("score2");');
+            addElement('scoreDiv', 'button', 'score3', 'mx-1 btn btn-primary', 'Inner Scoring');
+            document.getElementById('score3').setAttribute('type', 'button');
+            document.getElementById('score3').setAttribute('onclick', 'select("score3");');
+        isAutoUsed = true;
+        }
+        isTeleopUsed = false;
+        isEndgameUsed = false;
+    }
+
+    var isTeleopUsed = false;
+
+    function selectTeleopBtn() {
+        document.getElementById('autoBtn').setAttribute('class', 'btn btn-primary');
+        document.getElementById('teleopBtn').setAttribute('class', 'btn btn-warning btn-lg');
+        document.getElementById('endgameBtn').setAttribute('class', 'btn btn-primary');
+        if(!isTeleopUsed) {
+            if(isAutoUsed) {
+                document.getElementById('autoState').innerHTML = '';
+                document.getElementById('autoState').setAttribute('id', 'teleopState');
+            } else if(isEndgameUsed) {
+                document.getElementById('endgameState').innerHTML = '';
+                document.getElementById('endgameState').setAttribute('id', 'teleopState');
+            }
+            //add needed elements here
+            isTeleopUsed = true;
+        }
+        isAutoUsed = false;
+        isEndgameUsed = false;
+    }
+
+    var isEndgameUsed = false;
+
+    function selectEndgameBtn() {
+        document.getElementById('autoBtn').setAttribute('class', 'btn btn-primary');
+        document.getElementById('teleopBtn').setAttribute('class', 'btn btn-primary');
+        document.getElementById('endgameBtn').setAttribute('class', 'btn btn-warning btn-lg');
+        if(!isEndgameUsed) {
+            if(isAutoUsed) {
+                document.getElementById('autoState').innerHTML = '';
+                document.getElementById('autoState').setAttribute('id', 'endgameState');
+            } else if(isTeleopUsed) {
+                document.getElementById('teleopState').innerHTML = '';
+                document.getElementById('teleopState').setAttribute('id', 'endgameState');
+            }
+            //add needed elements here
+            isEndgameUsed = true;
+        }
+        isAutoUsed = false;
+        isTeleopUsed = false;
+    }
     </script>
 </head>
 <body style="background-color: rgb(54, 59, 66)">
         <div class="container"> 
             <form>
                 <center id="centerTag">
+                    <h1 class="display-4 text-white">Pit Scouting</h1>
                     <div id="pitContainer">
                         <label for="teamNum" class="pt-1" autocomplete="off" id="teamNumLabel">
                             <b class="text-white" id="teamNumText">Team Number:</b>
                         </label>
                         <div class="col-xs-5" id="inputDiv1">
                             <input type="number" id="input1" placeholder="Team #" name="teamNum" required>
+                        </div>
+                        <label class="pt-5" id="driveTrainLabel">
+                            <b class="text-white" id="driveTrainText">Drive Train Info:</b>
+                        </label>
+                        <div class="col-xs-12">
+                            <input type='text' style="width:20%;" id="driveTrainInput" placeholder="Drive Train Type" required>
+                        </div>
+                        <div class="col-xs-12 pt-2">
+                            <input type='number' style="width:20%;" id="driveTrainSpeedInput" placeholder="Drive Train Speed (ft/s)" required>
                         </div>
                         <label class="pt-5" id="cellCapLabel">
                             <b class="text-white" id="cellCapText">Power Cell Capacity</b>
@@ -109,20 +209,39 @@
                             <button type="button" class="btn btn-primary" id="4cellCap" onclick="select4cell();">4</button>
                             <button type="button" class="btn btn-primary" id="5cellCap" onclick="select5cell();">5</button>
                         </div>
-                        <label class="pt-5" id="stratLabel">
-                            <b class="text-white" id="stratText">Team Strategies</b>
+                        <label class="pt-5" id="startPosLabel">
+                            <b class="text-white" id="startPosText">Select Starting Position Range</b>
                         </label>
+                        <img src="Image Map of Robot Field.PNG" alt="Starting Line" usemap="#startingLineMap">
                         <div class="col-xs-12">
-                            <button type="button" class="btn btn-primary" id="defenseBtn" onclick="select('defenseBtn');">Defense</button>
+                            <map name="startingLineMap">
+
+                            </map>
                         </div>
-                        <div class="col-xs-12 pt-2">
-                            <button type="button" class="btn btn-primary" onclick="select('ctrlPanelBtn');" id='ctrlPanelBtn'>Control Panel</button>
-                            <button type="button" class="btn btn-primary" id='climbBtn' onclick="select('climbBtn');">Climb</button>
+                        <div class="col-xs-12" id="startPosDiv">
+                            <button type="button" class="btn btn-primary" id="startLeftBtn" onclick="select('startLeftBtn');">Left</button>
+                            <button type="button" class="btn btn-primary" id="startMidBtn" onclick="select('startMidBtn');">Middle</button>
+                            <button type="button" class="btn btn-primary" id="startRightBtn" onclick="select('startRightBtn');">Right</button>
                         </div>
+                        <label class="pt-5" id="gameStateLabel">
+                            <b class="text-white" id="gameStateText">Select Game State</b>
+                        </label>
+                        <div class="col-xs-5" id="inputDiv4">
+                            <button type="button" class="btn btn-primary" id="autoBtn" onclick="selectAutoBtn();">Auto</button>
+                            <button type="button" class="btn btn-primary" id="teleopBtn" onclick="selectTeleopBtn();">Teleop</button>
+                            <button type="button" class="btn btn-primary" id="endgameBtn" onclick="selectEndgameBtn();">Endgame</button>
+                        </div>
+                        <div id="autoState">
+                            
+                        </div>
+                        <label class="pt-5" id="addNoteLabel">
+                            <b class="text-white">Additional Notes:</b>
+                        </label>
                         <div class="col-xs-12 pt-2">
-                            <button type="button" class="btn btn-primary" id="score1" onclick="select('score1');">Base Scoring</button>
-                            <button type="button" class="btn btn-primary" id="score2" onclick="select('score2');">Hex Scoring</button>
-                            <button type="button" class="btn btn-primary" id="score3" onclick="select('score3');">Inner Scoring</button>
+                            <input type="text" style="width:80%" placeholder="Type specifics here...">
+                        </div>
+                        <div class="pt-3" id="subButtonDiv">
+                            <button type="submit" id="subButton" onClick="submitForm();" class="btn btn-success btn-lg my-2">Submit Data</button>
                         </div>
                     </div>
                 </center>
