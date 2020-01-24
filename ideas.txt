@@ -7,8 +7,21 @@ page for food
 
 page for rocketry
 
-page for Jesus
+page for Jesus / Theology
 
-page for programming / computer tricks
+page for computer tricks
 
-include social media links
+page for life summary in a nutshell
+
+easter egg page at /easteregg.html
+    This page can be a page for all the random stupid stuff that doesn't matter.
+
+maybe a photography page at some point?
+
+page for programming projects (link the following):
+    2020 Scouting App (No php enabled)
+    Source Code for website
+    VsCode Extensions
+    Discord Bot
+
+include instagram and github links.
