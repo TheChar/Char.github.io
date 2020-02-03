@@ -8,40 +8,82 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script>
+        function removeElement(elementId) {
+            var element = document.getElementById(elementId);
+            element.parentNode.removeChild(element);
+        }
+
+        function addElement(parentId, elementTag, elementId, elementClass, innerHtml) {
+            var p = document.getElementById(parentId);
+            var newElement = document.createElement(elementTag);
+            newElement.setAttribute('id', elementId);
+            newElement.setAttribute('class', elementClass);
+            newElement.innerHTML = innerHtml;
+            p.appendChild(newElement);
+        }
+
+        function signup() {
+            document.getElementById('headText').innerHTML = '2020 FRC Infinite Recharge Sign up';
+            document.getElementById('altBtn').innerHTML = 'Already have an account? Sign in';
+            document.getElementById('altBtn').setAttribute('onclick', 'signin();');
+            addElement('nameDiv', 'label', 'nameLabel', 'pt-1', '');
+            document.getElementById('nameLabel').setAttribute('for', 'name');
+            addElement('nameLabel', 'b', 'nameText', 'text-white', 'Name:');
+            addElement('nameDiv', 'div', 'nameDiv1', 'col-xs-12', '');
+            addElement('nameDiv1', 'input', 'nameInput', '', '');
+            document.getElementById('nameInput').setAttribute('type', 'text');
+            document.getElementById('nameInput').setAttribute('placeholder', 'Enter REAL Name');
+            document.getElementById('nameInput').setAttribute('name', 'name');
+            document.getElementById('nameInput').setAttribute('required');
+            document.getElementById('loginBtn').innerHTML = 'Sign Up';
+        }
+
+        function signin() {
+            document.getElementById('headText').innerHTML = '2020 FRC Infinite Recharge Login';
+            document.getElementById('altBtn').innerHTML = 'No account? Sign up';
+            document.getElementById('altBtn').setAttribute('onclick', 'signup();');
+            document.getElementById('nameDiv').innerHTML = '';
+            document.getElementById('loginBtn').innerHTML = 'Login';
+        }
+    </script>
 </head>
 <body style="background-color: rgb(54, 59, 66)">
         <!--This is the hub where people sign in to the system, can view their shekel count, view leaderboards, request loans, and bet on matches-->
         <header class="container">
             <div class="pt-3">
-                <h2 class="display-4 text-white text-center">
-                    2020 FRC Infinite Recharge
+                <h2 class="display-4 text-white text-center" id="headText">
+                    2020 FRC Infinite Recharge Login
                 </h2>
             </div>
         </header>
         <hr style="border:1px solid white; width:80%">
         <div class="container">
-            <form action="hub.html" method="post">
-                <center>
-                    <label for="uname">
-                        <b class="text-white">Username</b>
+            <center>
+                <form action="hub.html" method="post">
+                    <div id="nameDiv">
+
+                    </div>
+                    <label for="uname" class="pt-1">
+                        <b class="text-white">Username:</b>
                     </label>
                     <div class="col-xs-5">
                         <input type="text" placeholder="Enter Username" name="uname" required>
                     </div>
                     <label for="psw" class="pt-1">
-                        <b class="text-white">Password</b>
+                        <b class="text-white">Password:</b>
                     </label>
                     <div class="col-xs-5">
                         <input type="password" placeholder="Enter Password" name="psw" required>
                     </div>
                     <div class="col-xs-2 pt-3">
-                        <button type="submit" class="btn btn-success btn-lg">Login</button>
+                        <button type="submit" class="btn btn-success btn-lg mt-2" id="loginBtn">Login</button>
                     </div>
-                    <div class="pt-3">
-                        <a href="#" class="text-center">No account? Sign up.</a>
-                    </div>
-                </center>
-            </form>  
+                </form>  
+                <div class="pt-3">
+                    <button onclick="signup();" class="btn btn-primary mt-4" id="altBtn"> No account? Sign up.</button>
+                </div>
+            </center>
         </div>
     </body>
 </html>

@@ -179,7 +179,7 @@
         document.getElementById('initLineYesButton').setAttribute('class', 'm-1 btn btn-secondary');
         document.getElementById('initLineNoButton').setAttribute('class', 'm-1 btn btn-warning btn-lg');
     }
-
+    
     function selectLevelBtn() {
         document.getElementById('levelButton').setAttribute('class', 'm-1 btn btn-warning btn-lg');
         document.getElementById('notLevelButton').setAttribute('class', 'm-1 btn btn-secondary');
@@ -220,13 +220,16 @@
                         <button type="button" class="btn btn-secondary" id="redAllianceBtn" onclick="selectRedBtn();">Red Alliance</button>
                         <button type="button" class="btn btn-secondary" id="blueAllianceBtn" onclick="selectBlueBtn();">Blue Alliance</button>
                     </div>
-                    <label for="startPos" class="pt-3" id="startPosLabel">
-                        <b class="text-white" id="startPosText">Starting Position</b>
+                    <label class="pt-3" id="startPosLabel">
+                        <b class="text-white" id="startPosText">Select Starting Position</b>
                     </label>
-                    <div class="col-xs-5 pt-1" id="inputDiv4">
-                        <button type="button" class="btn btn-secondary" id="startLeftBtn" onclick="selectLeftBtn();">Left</button>
-                        <button type="button" class="btn btn-secondary" id="startMidBtn" onclick="selectMidBtn();">Middle</button>
-                        <button type="button" class="btn btn-secondary" id="startRightBtn" onclick="selectRightBtn();">Right</button>
+                    <div class="col-xs-12 pt-2">
+                        <img src="arbRobotField.PNG" alt="Starting Line" usemap="#startingLineMap" style="z-index: -1">
+                        <map name="startingLineMap">
+                            <area shape="rect" coords="0, 53, 70, 83" alt="Line Position 1" id="startPos1" href="#">
+                            <area shape="rect" coords="70, 53, 120, 83" alt="Line Position 2" id="startPos2" href="#">
+                            <area shape="rect" coords="120, 53, 241, 83" alt="Line Position 3" id="startPos3" href="#">
+                        </map>
                     </div>
                     <label for="startPowerCells" class="pt-3" id="startPowerCellsLabel">
                         <b class="text-white" id="startPowerCellsText">Number of Preloaded Power Cells</b>
@@ -238,7 +241,7 @@
                         <button type="button" class="btn btn-secondary" id="start3cell" onclick="select3cell();">3</button>
                     </div>
                     <div class="pt-4" id="subButtonDiv">
-                        <button type="submit" onClick="startMatch();" id="subButton" class="btn btn-success btn-lg mt-2">Start Match</button>
+                        <button type="submit" onClick="startMatch();" id="subButton" class="btn btn-success btn-lg mt-2 mb-3">Start Match</button>
                     </div>
                 </div>
             </center>

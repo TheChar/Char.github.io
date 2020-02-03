@@ -11,8 +11,6 @@ page for Jesus / Theology
 
 page for computer tricks
 
-page for life summary in a nutshell
-
 easter egg page at /easteregg.html
     This page can be a page for all the random stupid stuff that doesn't matter.
 
@@ -25,3 +23,13 @@ page for programming projects (link the following):
     Discord Bot
 
 include instagram and github links.
+
+slideshow should change once every 3 to 4 seconds using animations. A red-yellow bar will run along the bottom
+of the screen to tell users how long until the image switches. If the user hovers over the slideshow, the 
+animation and indicator bar will stop, and two red-yellow arrows will appear at the edges of the image.
+Those can be clicked to force the slideshow to go to a specific slide.
+
+The footer should have copyright as well as a sitemap. Link hovering on sitemap will cause the link to 
+appear red-yellow.
+
+There should definitely be a customizable chrome startup page where users can place things they want for startup.

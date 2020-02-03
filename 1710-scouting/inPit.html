@@ -212,16 +212,13 @@
                         <label class="pt-5" id="startPosLabel">
                             <b class="text-white" id="startPosText">Select Starting Position Range</b>
                         </label>
-                        <img src="Image Map of Robot Field.PNG" alt="Starting Line" usemap="#startingLineMap">
-                        <div class="col-xs-12">
+                        <div class="col-xs-12 pt-2">
+                            <img src="arbRobotField.PNG" alt="Starting Line" usemap="#startingLineMap">
                             <map name="startingLineMap">
-
+                                <area shape="rect" coords="0, 53, 70, 83" alt="Line Position 1" href="#">
+                                <area shape="rect" coords="70, 53, 120, 83" alt="Line Position 2" href="#">
+                                <area shape="rect" coords="120, 53, 241, 83" alt="Line Position 3" href="#">
                             </map>
-                        </div>
-                        <div class="col-xs-12" id="startPosDiv">
-                            <button type="button" class="btn btn-primary" id="startLeftBtn" onclick="select('startLeftBtn');">Left</button>
-                            <button type="button" class="btn btn-primary" id="startMidBtn" onclick="select('startMidBtn');">Middle</button>
-                            <button type="button" class="btn btn-primary" id="startRightBtn" onclick="select('startRightBtn');">Right</button>
                         </div>
                         <label class="pt-5" id="gameStateLabel">
                             <b class="text-white" id="gameStateText">Select Game State</b>
