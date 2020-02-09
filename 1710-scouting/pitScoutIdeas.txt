@@ -1,0 +1,11 @@
+teleop-
+    which goals are scored
+    pass stage 1 independently?
+    pass stage 2 
+        can they do the color wheel
+    pass stage 3
+        can they detect and cause the color wheel to stop on a certain color
+
+endgame-
+    climb
+    park?

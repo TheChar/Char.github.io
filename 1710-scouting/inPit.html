@@ -90,92 +90,395 @@
         window.open('hub.html', '_self');
     }
 
-    var isAutoUsed = false;
+    //Auto state save variables
+    var crossInitLineAuto = false; //true for yes, false for no
+    var intakePowCellAuto = false; //true for yes, false for no
+    var powCellLocationAuto = '';
+    var maxPowCellScoredAuto = 0;
 
     function selectAutoBtn() {
-        document.getElementById('autoBtn').setAttribute('class', 'btn btn-warning btn-lg');
-        document.getElementById('teleopBtn').setAttribute('class', 'btn btn-primary');
-        document.getElementById('endgameBtn').setAttribute('class', 'btn btn-primary');
-        if(!isAutoUsed) {
-            if(isTeleopUsed) {
-                document.getElementById('teleopState').innerHTML = '';
-                document.getElementById('teleopState').setAttribute('id', 'autoState');
-            } else if(isEndgameUsed) {
-                document.getElementById('endgameState').innerHTML = '';
-                document.getElementById('endgameState').setAttribute('id', 'autoState');
-            }
-            addElement('autoState', 'label', 'stratLabel', 'pt-5', '');
-            addElement('stratLabel', 'b', 'stratText', 'text-white', 'Team Strategies');
-            addElement('autoState', 'div', 'defenseBtnDiv', 'pt-4', '');
-            addElement('defenseBtnDiv', 'div', 'defenseBtnContainer', 'col-xs-12', '');
-            addElement('defenseBtnContainer', 'button', 'defenseBtn', 'btn btn-primary', 'Defense');
-            document.getElementById('defenseBtn').setAttribute('onclick', 'selectDefenseBtn();');
-            addElement('autoState', 'div', 'ctrlPanelBtnDiv', 'pt-4', '');
-            addElement('ctrlPanelBtnDiv', 'div', 'ctrlPanelBtnContainer', 'col-xs-12', '');
-            addElement('ctrlPanelBtnContainer', 'button', 'ctrlPanelBtn', 'btn btn-primary', 'Control Panel');
-            document.getElementById('ctrlPanelBtn').setAttribute('onclick', 'selectCtrlPanelBtn();')
-            addElement('autoState', 'div', 'climbBtnDiv', 'pt-4', '');
-            addElement('climbBtnDiv', 'div', 'climbBtnContainer', 'col-xs-12', '');
-            addElement('climbBtnContainer', 'button', 'climbBtn', 'btn btn-primary', 'Climb');
-            document.getElementById('climbBtn').setAttribute('onclick', 'selectClimbBtn();');
-            addElement('autoState', 'div', 'scoreDiv', 'col-xs-12 pt-4', '');
-            addElement('scoreDiv', 'button', 'score1', 'mx-1 btn btn-primary', 'Base Scoring');
-            document.getElementById('score1').setAttribute('type', 'button');
-            document.getElementById('score1').setAttribute('onclick', 'select("score1");');
-            addElement('scoreDiv', 'button', 'score2', 'mx-1 btn btn-primary', 'Hex Scoring');
-            document.getElementById('score2').setAttribute('type', 'button');
-            document.getElementById('score2').setAttribute('onclick', 'select("score2");');
-            addElement('scoreDiv', 'button', 'score3', 'mx-1 btn btn-primary', 'Inner Scoring');
-            document.getElementById('score3').setAttribute('type', 'button');
-            document.getElementById('score3').setAttribute('onclick', 'select("score3");');
-        isAutoUsed = true;
+        document.getElementById('gameStateText').innerHTML = "Auto";
+        document.getElementById('backBtn').setAttribute('style', 'font-size:500%;opacity:0%');
+        document.getElementById('backBtn').setAttribute('onclick', '');
+        document.getElementById('forwardBtn').setAttribute('onclick', 'selectTeleopBtn();');
+        document.getElementById('forwardBtn').setAttribute('style', 'font-size:500%;opacity:100%;');
+        document.getElementById('lilContainerBoi').innerHTML = "";
+        addElement('lilContainerBoi', 'label', 'initLineLabel', '', '');
+        addElement('initLineLabel', 'b', '', 'text-white', 'Cross Initialization Line?');
+        addElement('lilContainerBoi', 'div', 'div0', 'col-xs-12', '');
+
+        if(!crossInitLineAuto) {
+            addElement('div0', 'button', 'yesBtn', 'btn btn-primary mx-2', 'Yes');
+            addElement('div0', 'button', 'noBtn', 'btn btn-warning mx-2', 'No');
+        } else {
+            addElement('div0', 'button', 'yesBtn', 'btn btn-warning mx-2', 'Yes');
+            addElement('div0', 'button', 'noBtn', 'btn btn-primary mx-2', 'No');
         }
-        isTeleopUsed = false;
-        isEndgameUsed = false;
+        document.getElementById('yesBtn').setAttribute('type', 'button');
+        document.getElementById('yesBtn').setAttribute('onclick', 'selectYesBtn();');
+        document.getElementById('noBtn').setAttribute('type', 'button');
+        document.getElementById('noBtn').setAttribute('onclick', 'selectNoBtn();');
+        addElement('lilContainerBoi', 'label', 'intakeLabel', 'pt-4', '');
+        addElement('intakeLabel', 'b', '', 'text-white', 'Intake Power Cells?');
+        addElement('lilContainerBoi', 'div', 'intakeDiv', 'col-xs-12', '');
+        if(!intakePowCellAuto) {
+            addElement('intakeDiv', 'button', 'yes1Btn', 'btn btn-primary mx-2', 'Yes');
+            addElement('intakeDiv', 'button', 'no1Btn', 'btn btn-warning mx-2', 'No');
+        } else {
+            addElement('intakeDiv', 'button', 'yes1Btn', 'btn btn-warning mx-2', 'Yes');
+            addElement('intakeDiv', 'button', 'no1Btn', 'btn btn-primary mx-2', 'No');
+        }
+        document.getElementById('yes1Btn').setAttribute('type', 'button');
+        document.getElementById('yes1Btn').setAttribute('onclick', 'selectYes1Btn();');
+        document.getElementById('no1Btn').setAttribute('type', 'button');
+        document.getElementById('no1Btn').setAttribute('onclick', 'selectNo1Btn();');
+        addElement('lilContainerBoi', 'div', 'chonk', 'col-xs-12', '');
+        addElement('chonk', 'input', 'intakeLocation', 'my-4', ''); 
+        document.getElementById('intakeLocation').setAttribute('type', 'text');
+        document.getElementById('intakeLocation').setAttribute('placeholder', 'Which power cells can they collect?');
+        document.getElementById('intakeLocation').setAttribute('style', 'width:80%;');
+        addElement('lilContainerBoi', 'label', 'powCellLabel', 'pt-3', '');
+        addElement('powCellLabel', 'b', '', 'text-white', 'Max Power Cells Scored');
+        addElement('powCellLabel', 'p', 'powCellLilBoi', '', '(In Autonomous)');
+        document.getElementById('powCellLilBoi').setAttribute('style', 'color:white;font-size:11px;');
+        addElement('lilContainerBoi', 'div', 'powCellBigBoi', 'col-xs-12', '');
+        addElement('powCellBigBoi', 'input', 'powCellMedBoi', '', '');
+        document.getElementById('powCellMedBoi').setAttribute('type', 'number');
+        document.getElementById('powCellMedBoi').setAttribute('style', 'width:80%');
+        document.getElementById('powCellMedBoi').setAttribute('placeholder', "What's the most they've ever done?");
+        addElement('lilContainerBoi', 'label', 'chunk', 'pt-4', '');
+        addElement('chunk', 'b', '', 'text-white', 'Power Port Target Locations');
+        addElement('chunk', 'p', 'chunkee', '', '(In Autonomous)');
+        document.getElementById('chunkee').setAttribute('style', 'color:white;font-size:11px;');
+        addElement('lilContainerBoi', 'div', 'powDiv', 'col-xs-12', '');
+        if(!isBotPortActive) {
+            addElement('powDiv', 'button', 'botPort', 'btn btn-primary m-2', 'Bottom Port');
+        } else {
+            addElement('powDiv', 'button', 'botPort', 'btn btn-warning m-2', 'Bottom Port');
+        }
+        document.getElementById('botPort').setAttribute('type', 'button');
+        document.getElementById('botPort').setAttribute('onclick', 'selectBotPort();');
+        if(!isOutPortActive) {
+            addElement('powDiv', 'button', 'outPort', 'btn btn-primary m-2', 'Outer Port');
+        } else {
+            addElement('powDiv', 'button', 'outPort', 'btn btn-warning m-2', 'Outer Port');
+        }
+        document.getElementById('outPort').setAttribute('type', 'button');
+        document.getElementById('outPort').setAttribute('onclick', 'selectOuterPort();');
+        if(!isInPortActive) {
+            addElement('powDiv', 'button', 'inPort', 'btn btn-primary m-2', 'Inner Port');
+        } else {
+            addElement('powDiv', 'button', 'inPort', 'btn btn-warning m-2', 'Inner Port');
+        }
+        document.getElementById('inPort').setAttribute('type', 'button');
+        document.getElementById('inPort').setAttribute('onclick', 'selectInnerPort();');
+
     }
 
-    var isTeleopUsed = false;
+    //Teleop variables
+    var isHPStatActive = false;
+    var isGndActive = false;
 
     function selectTeleopBtn() {
-        document.getElementById('autoBtn').setAttribute('class', 'btn btn-primary');
-        document.getElementById('teleopBtn').setAttribute('class', 'btn btn-warning btn-lg');
-        document.getElementById('endgameBtn').setAttribute('class', 'btn btn-primary');
-        if(!isTeleopUsed) {
-            if(isAutoUsed) {
-                document.getElementById('autoState').innerHTML = '';
-                document.getElementById('autoState').setAttribute('id', 'teleopState');
-            } else if(isEndgameUsed) {
-                document.getElementById('endgameState').innerHTML = '';
-                document.getElementById('endgameState').setAttribute('id', 'teleopState');
-            }
-            //add needed elements here
-            isTeleopUsed = true;
+        document.getElementById('gameStateText').innerHTML = 'Teleop';
+        document.getElementById('backBtn').setAttribute('style', 'font-size:500%; opacity:100%;');
+        document.getElementById('forwardBtn').setAttribute('style', 'font-size:500%;opacity:100%;');
+        document.getElementById('backBtn').setAttribute('onclick', 'selectAutoBtn();');
+        document.getElementById('forwardBtn').setAttribute('onclick', 'selectEndgameBtn();');
+        document.getElementById('lilContainerBoi').innerHTML = "";
+        addElement('lilContainerBoi', 'label', 'chung', '', '');
+        addElement('chung', 'b', '', 'text-white', 'Intake Locations');
+        addElement('chung', 'p', 'chung1', '', '(In Teleop)');
+        document.getElementById('chung1').setAttribute('style', 'font-size:11px;color:white;');
+        addElement('lilContainerBoi', 'div', 'thunk', 'pt-2', '');
+        if(!isHPStatActive) {
+            addElement('thunk', 'button', 'HPStatBtn', 'btn btn-primary m-2', 'Human Player Station Intake');
+        } else {
+            addElement('thunk', 'button', 'HPStatBtn', 'btn btn-warning m-2', 'Human Player Station Intake');
         }
-        isAutoUsed = false;
-        isEndgameUsed = false;
-    }
+        document.getElementById('HPStatBtn').setAttribute('type', 'button');
+        document.getElementById('HPStatBtn').setAttribute('onclick', 'selectHPStatBtn();');
+        if(!isGndActive) {
+            addElement('thunk', 'button', 'gndBtn', 'btn btn-primary m-2', 'Ground Intake');
+        } else {
+            addElement('thunk', 'button', 'gndBtn', 'btn btn-warning m-2', 'Ground Intake');
+        }
+        document.getElementById('gndBtn').setAttribute('type', 'button');
+        document.getElementById('gndBtn').setAttribute('onclick', 'selectGndBtn();');
+        addElement('lilContainerBoi', 'label', 'scoringRange', 'pt-4', '');
+        addElement('scoringRange', 'b', '', 'text-white', 'Where do they score from?');
+        addElement('scoringRange', 'p', 'scoringRangeText', '', '(In Teleop)');
+        addElement('scoringRange', 'p', 'scoringRangeHint', '', '(Short-in front of trench, mid-aligned with trench, long-behind the trench)');
+        document.getElementById('scoringRangeText').setAttribute('style', 'color:white;font-size:11px;');
+        document.getElementById('scoringRangeHint').setAttribute('style', 'color:white;font-size:11px;');
+        addElement('lilContainerBoi', 'div', 'scoringRangeDiv', 'col-xs-12', '');
+        if(!isShortBtnActive) {
+            addElement('scoringRangeDiv', 'button', 'shortBtn', 'btn btn-primary m-2', 'Short Range');
+        } else {
+            addElement('scoringRangeDiv', 'button', 'shortBtn', 'btn btn-warning m-2', 'Short Range');
+        }
+        document.getElementById('shortBtn').setAttribute('type', 'button');
+        document.getElementById('shortBtn').setAttribute('onclick', 'selectShortBtn();');
+        if(!isMidBtnActive) {
+            addElement('scoringRangeDiv', 'button', 'midBtn', 'btn btn-primary m-2', 'Mid Range');
+        } else {
+            addElement('scoringRangeDiv', 'button', 'midBtn', 'btn btn-warning m-2', 'Mid Range');
+        }
+        document.getElementById('midBtn').setAttribute('type', 'button');
+        document.getElementById('midBtn').setAttribute('onclick', 'selectMidBtn();');
+        if(!isLongBtnActive) {
+            addElement('scoringRangeDiv', 'button', 'longBtn', 'btn btn-primary m-2', 'Long Range');
+        } else {
+            addElement('scoringRangeDiv', 'button', 'longBtn', 'btn btn-warning m-2', 'Long Range');
+        }
+        document.getElementById('longBtn').setAttribute('type', 'button');
+        document.getElementById('longBtn').setAttribute('onclick', 'selectLongBtn();');
 
-    var isEndgameUsed = false;
+        addElement('lilContainerBoi', 'label', 'chunk', 'pt-4', '');
+        addElement('chunk', 'b', '', 'text-white', 'Power Port Target Locations');
+        addElement('chunk', 'p', 'chunkee', '', '(In Autonomous)');
+        document.getElementById('chunkee').setAttribute('style', 'color:white;font-size:11px;');
+        addElement('lilContainerBoi', 'div', 'powDiv', 'col-xs-12', '');
+        if(!isBotPortActive) {
+            addElement('powDiv', 'button', 'botPort', 'btn btn-primary m-2', 'Bottom Port');
+        } else {
+            addElement('powDiv', 'button', 'botPort', 'btn btn-warning m-2', 'Bottom Port');
+        }
+        document.getElementById('botPort').setAttribute('type', 'button');
+        document.getElementById('botPort').setAttribute('onclick', 'selectBotPort();');
+        if(!isOutPortActive) {
+            addElement('powDiv', 'button', 'outPort', 'btn btn-primary m-2', 'Outer Port');
+        } else {
+            addElement('powDiv', 'button', 'outPort', 'btn btn-warning m-2', 'Outer Port');
+        }
+        document.getElementById('outPort').setAttribute('type', 'button');
+        document.getElementById('outPort').setAttribute('onclick', 'selectOuterPort();');
+        if(!isInPortActive) {
+            addElement('powDiv', 'button', 'inPort', 'btn btn-primary m-2', 'Inner Port');
+        } else {
+            addElement('powDiv', 'button', 'inPort', 'btn btn-warning m-2', 'Inner Port');
+        }
+        document.getElementById('inPort').setAttribute('type', 'button');
+        document.getElementById('inPort').setAttribute('onclick', 'selectInnerPort();');
+    }
 
     function selectEndgameBtn() {
-        document.getElementById('autoBtn').setAttribute('class', 'btn btn-primary');
-        document.getElementById('teleopBtn').setAttribute('class', 'btn btn-primary');
-        document.getElementById('endgameBtn').setAttribute('class', 'btn btn-warning btn-lg');
-        if(!isEndgameUsed) {
-            if(isAutoUsed) {
-                document.getElementById('autoState').innerHTML = '';
-                document.getElementById('autoState').setAttribute('id', 'endgameState');
-            } else if(isTeleopUsed) {
-                document.getElementById('teleopState').innerHTML = '';
-                document.getElementById('teleopState').setAttribute('id', 'endgameState');
-            }
-            //add needed elements here
-            isEndgameUsed = true;
-        }
-        isAutoUsed = false;
-        isTeleopUsed = false;
+        document.getElementById('gameStateText').innerHTML = "Endgame";
+        document.getElementById('forwardBtn').setAttribute('style', 'font-size:500%;opacity:0%;');
+        document.getElementById('backBtn').setAttribute('style', 'font-size:500%;opacity:100%;');
+        document.getElementById('forwardBtn').setAttribute('onclick', '');
+        document.getElementById('backBtn').setAttribute('onclick', 'selectTeleopBtn();');
+        document.getElementById('lilContainerBoi').innerHTML = '';
     }
-    </script>
+
+    var isDefenseSelected = false;
+
+    function selectDefenseBtn() {
+        if(!isDefenseSelected) {
+            document.getElementById('defenseBtn').setAttribute('class', 'btn btn-warning');
+            isDefenseSelected = true;
+        } else {
+            document.getElementById('defenseBtn').setAttribute('class', 'btn btn-primary');
+            isDefenseSelected = false;
+        }
+    }
+
+    var isClimbSelected = false;
+
+    function selectClimbBtn() {
+        if(!isClimbSelected) {
+            document.getElementById('climbBtn').setAttribute('class', 'btn btn-warning');
+            isClimbSelected = true;
+        } else {
+            document.getElementById('climbBtn').setAttribute('class', 'btn btn-primary');
+            isClimbSelected = false;
+        }
+    }
+
+    var isCtrlPanelSelected = false;
+
+    function selectCtrlPanelBtn() {
+        if(!isCtrlPanelSelected) {
+            document.getElementById('ctrlPanelBtn').setAttribute('class', 'btn btn-warning');
+            isCtrlPanelSelected = true;
+        } else {
+            document.getElementById('ctrlPanelBtn').setAttribute('class', 'btn btn-primary');
+            isCtrlPanelSelected = false;
+        }
+    }
+
+    var isBaseSelected = false;
+
+    function selectBaseScoreBtn() {
+        if(!isBaseSelected) {
+            document.getElementById('baseScoreBtn').setAttribute("class", "mx-1 btn btn-warning");
+            isBaseSelected = true;
+        } else {
+            document.getElementById('baseScoreBtn').setAttribute("class", "mx-1 btn btn-primary");
+            isBaseSelected = false;
+        }
+    }
+
+    var isOuterSelected = false;
+
+function selectOuterScoreBtn() {
+    if(!isOuterSelected) {
+        document.getElementById('outerScoreBtn').setAttribute("class", "mx-1 btn btn-warning");
+        isOuterSelected = true;
+    } else {
+        document.getElementById('outerScoreBtn').setAttribute("class", "mx-1 btn btn-primary");
+        isOuterSelected = false;
+    }
+}
+
+var isInnerSelected = false;
+
+function selectInnerScoreBtn() {
+    if(!isInnerSelected) {
+        document.getElementById('innerScoreBtn').setAttribute("class", "mx-1 btn btn-warning");
+        isInnerSelected = true;
+    } else {
+        document.getElementById('innerScoreBtn').setAttribute("class", "mx-1 btn btn-primary");
+        isInnerSelected = false;
+    }
+}
+
+function selectAllRangePos() {
+    document.getElementById("pos0Btn").innerHTML = "Deselect All";
+    document.getElementById('pos0Btn').setAttribute('onclick', 'deselectAllRangePos();');
+    document.getElementById("pos1Btn").setAttribute('class', 'btn btn-warning');
+    document.getElementById("pos2Btn").setAttribute('class', 'btn btn-warning');
+    document.getElementById("pos3Btn").setAttribute('class', 'btn btn-warning');
+    document.getElementById("pos4Btn").setAttribute('class', 'btn btn-warning');
+}
+
+function deselectAllRangePos() {
+    document.getElementById("pos0Btn").innerHTML = "Select All";
+    document.getElementById('pos0Btn').setAttribute('onclick', 'selectAllRangePos();');
+    document.getElementById("pos1Btn").setAttribute('class', 'btn btn-primary');
+    document.getElementById("pos2Btn").setAttribute('class', 'btn btn-primary');
+    document.getElementById("pos3Btn").setAttribute('class', 'btn btn-primary');
+    document.getElementById("pos4Btn").setAttribute('class', 'btn btn-primary');
+}
+
+function selectYesBtn() {
+    document.getElementById('yesBtn').setAttribute('class', 'btn btn-warning mx-2');
+    document.getElementById('noBtn').setAttribute('class', 'btn btn-primary mx-2');
+    crossInitLineAuto = true;
+}
+
+function selectNoBtn() {
+    document.getElementById('yesBtn').setAttribute('class', 'btn btn-primary mx-2');
+    document.getElementById('noBtn').setAttribute('class', 'btn btn-warning mx-2');
+    crossInitLineAuto = false;
+}
+
+function selectYes1Btn() {
+    document.getElementById('yes1Btn').setAttribute('class', 'btn btn-warning mx-2');
+    document.getElementById('no1Btn').setAttribute('class', 'btn btn-primary mx-2');
+    intakePowCellAuto = true;
+}
+
+function selectNo1Btn() {
+    document.getElementById('yes1Btn').setAttribute('class', 'btn btn-primary mx-2');
+    document.getElementById('no1Btn').setAttribute('class', 'btn btn-warning mx-2');
+    intakePowCellAuto = false;
+}
+
+var isBotPortActive = false;
+
+function selectBotPort() {
+    if(!isBotPortActive) {
+        document.getElementById('botPort').setAttribute('class', 'btn btn-warning m-2');
+        isBotPortActive = true;
+    } else {
+        document.getElementById('botPort').setAttribute('class', 'btn btn-primary m-2');
+        isBotPortActive = false;
+    }
+}
+
+var isOutPortActive = false;
+
+function selectOuterPort() {
+    if(!isOutPortActive) {
+        document.getElementById('outPort').setAttribute('class', 'btn btn-warning m-2');
+        isOutPortActive = true;
+    } else {
+        document.getElementById('outPort').setAttribute('class', 'btn btn-primary m-2');
+        isOutPortActive = false;
+    }
+}
+
+var isInPortActive = false;
+
+function selectInnerPort() {
+    if(!isInPortActive) {
+        document.getElementById('inPort').setAttribute('class', 'btn btn-warning m-2');
+        isInPortActive = true;
+    } else {
+        document.getElementById('inPort').setAttribute('class', 'btn btn-primary m-2');
+        isInPortActive = false;
+    }
+}
+
+function selectHPStatBtn() {
+    if(!isHPStatActive) {
+        document.getElementById('HPStatBtn').setAttribute('class', 'btn btn-warning m-2');
+        isHPStatActive = true;
+
+    } else {
+        document.getElementById('HPStatBtn').setAttribute('class', 'btn btn-primary m-2');
+        isHPStatActive = false;
+    }
+}
+
+function selectGndBtn() {
+    if(!isGndActive) {
+        document.getElementById('gndBtn').setAttribute('class', 'btn btn-warning m-2');
+        isGndActive = true;
+
+    } else {
+        document.getElementById('gndBtn').setAttribute('class', 'btn btn-primary m-2');
+        isGndActive = false;
+    }
+}
+
+var isShortBtnActive = false;
+
+function selectShortBtn() {
+    if(!isShortBtnActive) {
+        document.getElementById('shortBtn').setAttribute('class', 'btn btn-warning m-2');
+        isShortBtnActive = true;
+    } else {
+        document.getElementById('shortBtn').setAttribute('class', 'btn btn-primary m-2');
+        isShortBtnActive = false;
+    }
+}
+
+var isMidBtnActive = false;
+
+function selectMidBtn() {
+    if(!isMidBtnActive) {
+        document.getElementById('midBtn').setAttribute('class', 'btn btn-warning m-2');
+        isMidBtnActive = true;
+    } else {
+        document.getElementById('midBtn').setAttribute('class', 'btn btn-primary m-2');
+        isMidBtnActive = false;
+    }
+}
+
+var isLongBtnActive = false;
+
+function selectLongBtn() {
+    if(!isLongBtnActive) {
+        document.getElementById('longBtn').setAttribute('class', 'btn btn-warning m-2');
+        isLongBtnActive = true;
+    } else {
+        document.getElementById('longBtn').setAttribute('class', 'btn btn-primary m-2');
+        isLongBtnActive = false;
+    }
+}
+</script>
 </head>
 <body style="background-color: rgb(54, 59, 66)">
         <div class="container"> 
@@ -209,27 +512,75 @@
                             <button type="button" class="btn btn-primary" id="4cellCap" onclick="select4cell();">4</button>
                             <button type="button" class="btn btn-primary" id="5cellCap" onclick="select5cell();">5</button>
                         </div>
-                        <label class="pt-5" id="startPosLabel">
-                            <b class="text-white" id="startPosText">Select Starting Position Range</b>
-                        </label>
-                        <div class="col-xs-12 pt-2">
+                        <div class="col-xs-12 pt-5">
                             <img src="arbRobotField.PNG" alt="Starting Line" usemap="#startingLineMap">
-                            <map name="startingLineMap">
-                                <area shape="rect" coords="0, 53, 70, 83" alt="Line Position 1" href="#">
-                                <area shape="rect" coords="70, 53, 120, 83" alt="Line Position 2" href="#">
-                                <area shape="rect" coords="120, 53, 241, 83" alt="Line Position 3" href="#">
-                            </map>
+                        </div>
+                        <label class="pt-4" id="startPosLabel">
+                            <b class="text-white" id="startPosText">Select Starting Position Range</b><br>
+                            <p style="font-size:11px; color:white;" id="startPosHint">(Aligned with what?)</p>
+                        </label>
+                        <div class="col-xs-12 my-3">
+                            <button type="button" class="btn btn-primary" id="pos0Btn" onclick="selectAllRangePos();">Select All</button>
+                        </div>
+                        <div class="col-xs-12 my-3">
+                            <button type="button" class="btn btn-primary" id="pos1Btn" onclick="select('pos1Btn');">In front of Guard Rail (Left)</button>
+                        </div>
+                        <div class="col-xs-12 my-3">
+                            <button type="button" class="btn btn-primary" id="pos2Btn" onclick="select('pos2Btn');">In front of Power Port</button>
+                        </div>
+                        <div class="col-xs-12 my-3">
+                            <button type="button" class="btn btn-primary" id="pos3Btn" onclick="select('pos3Btn');">In front of Human Player Station</button>
+                        </div>
+                        <div class="col-xs-12 my-3">
+                            <button type="button" class="btn btn-primary" id="pos4Btn" onclick="select('pos4Btn');">In front of Guard Rail (Right)</button>
+                        </div>
+                        <label class="pt-3" id="pos5Label">
+                            <b class="text-white" id="pos5LabelText">Other:</b>
+                        </label>
+                        <div class="col-xs-12" id="pos5Label">
+                            <input type="text" style="width:80%" placeholder="Other starting positions...">
                         </div>
                         <label class="pt-5" id="gameStateLabel">
-                            <b class="text-white" id="gameStateText">Select Game State</b>
+                            <b class="text-white display-4" id="gameStateText">Auto</b>
                         </label>
-                        <div class="col-xs-5" id="inputDiv4">
-                            <button type="button" class="btn btn-primary" id="autoBtn" onclick="selectAutoBtn();">Auto</button>
-                            <button type="button" class="btn btn-primary" id="teleopBtn" onclick="selectTeleopBtn();">Teleop</button>
-                            <button type="button" class="btn btn-primary" id="endgameBtn" onclick="selectEndgameBtn();">Endgame</button>
+                        <div id="lilContainerBoi" style="border:5px solid black;border-radius: 16px;" class="p-5">
+                            <label>
+                                <b class="text-white">Cross Initialization Line?</b>
+                            </label>
+                            <div class="col-xs-12">
+                                <button type="button" class="btn btn-primary mx-1" onclick="selectYesBtn();" id="yesBtn">Yes</button>
+                                <button type="button" class="btn btn-primary mx-1" onclick="selectNoBtn();" id="noBtn">No</button>
+                            </div>
+                            <label class="pt-4">
+                                <b class="text-white">Intake Power Cells?</b>
+                            </label>
+                            <div class="col-xs-12">
+                                <button type="button" class="btn btn-primary mx-1" onclick="selectYes1Btn();" id="yes1Btn">Yes</button>
+                                <button type="button" class="btn btn-primary mx-1" onclick="selectNo1Btn();" id="no1Btn">No</button>
+                            </div>
+                            <div class="col-xs-12">
+                                <input style="width:80%;" type="text" id="intakeLocation" placeholder="Which power cells can they collect?" class="mt-4">
+                            </div>
+                            <label class="pt-3" id="powCellLabel">
+                                <b class="text-white">Max Power Cells Scored</b>
+                                <p style="color:white;font-size:11px;">(In Autonomous)</p>
+                            </label>
+                            <div class="col-xs-12">
+                                <input type="number" style="width:80%" placeholder="What's the most they've ever done?">
+                            </div>
+                            <label class="pt-4">
+                                <b class="text-white">Power Port Target Locations</b>
+                                <p style="color:white;font-size:11px;">(In Autonomous)</p>
+                            </label>
+                            <div class="col-xs-12">
+                                <button type="button" class="btn btn-primary m-2" onclick="selectBotPort();" id="botPort">Bottom Port</button>
+                                <button type="button" class="btn btn-primary m-2" onclick="selectOuterPort();" id="outPort">Outer Port</button>
+                                <button type="button" class="btn btn-primary m-2" onclick="selectInnerPort();" id="inPort">Inner Port</button>
+                            </div>
                         </div>
-                        <div id="autoState">
-                            
+                        <div class="col-xs-12 pt-3">
+                            <a class="text-danger mx-4" onclick="" style="font-size:500%; opacity:0%;" id="backBtn">&#171;</a>
+                            <a class="text-success mx-4" onclick="selectTeleopBtn();" style="font-size:500%; opacity:100%;" id="forwardBtn">&#187;</a>
                         </div>
                         <label class="pt-5" id="addNoteLabel">
                             <b class="text-white">Additional Notes:</b>
