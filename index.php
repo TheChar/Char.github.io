@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
   <head>
     <title>Charlie's Website</title>
     <!--script to make it impossible to right-click. To remove, highlight all and do ctrl + /-->
@@ -279,40 +278,8 @@
       </div><!-- End of specific section div-->
       <div style="height:10px;"></div>
       <div class="footer">
-        <p style="padding:15px;">&copy;Charlie Bergdall 2019</p>
+        <p style="padding:15px;">&copy;Charlie Bergdall <?php echo date("Y");?></p>
       </div>
     </div> <!-- End of body below header-->
   </body>
-=======
-    <head>
-        <title>Home</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--Bootstrap links (next 4 lines)-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-        <!--Put additional imports here-->
-    </head>
-    <body style="background-color:whitesmoke">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">Brand Name</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="index.html">Home</a>
-                    <a class="nav-item nav-link" href="webdesign.html">Web Design</a>
-                    <a class="nav-item nav-link" href="applications.html">Applications</a>
-                    <a class="nav-item nav-link" href="downloads/aerialpanos.zip">Aerial Panoramas</a>
-                    <a class="nav-item nav-link" href="contact.html">Contact</a>
-                </div>
-            </div>
-        </nav>
-        <iframe src="google.com">
-        </iframe>
-    </body>
->>>>>>> decca9dde9a91dd750576945e4d45b24794a8ccf
 </html>
